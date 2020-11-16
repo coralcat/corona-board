@@ -26,7 +26,7 @@ function drawAgeChart() {
     pieHole: 0.4,
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
-    animation:{
+    animation: {
       duration: 1000,
       easing: 'out',
       startup: true
@@ -50,7 +50,7 @@ function drawGenderChart() {
     pieHole: 0.4,
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
-    animation:{
+    animation: {
       duration: 1200,
       easing: 'out',
       startup: true
@@ -77,7 +77,7 @@ function drawSeverityChart() {
     title: '중증도 비율',
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
-    animation:{
+    animation: {
       duration: 1400,
       easing: 'out',
       startup: true
@@ -101,7 +101,7 @@ function drawTreatmentChart() {
     title: '치료 현황',
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
-    animation:{
+    animation: {
       duration: 1600,
       easing: 'out',
       startup: true
@@ -131,16 +131,15 @@ function drawDaysChart() {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '일별 확진 통계',
     hAxis: {
-      title: '일별 확진자', titleTextStyle: {color: '#333'}
-      },
+      title: '일별 확진자',
+      titleTextStyle: {color: '#333'},
+      format: 'yyyy.MM.dd',
+    },
     vAxis: {minValue: 0},
     legend: 'none',
     chartArea: {width: '80%',},
-    hAxis: {
-      format: 'yyyy.MM.dd',
-    },
     backgroundColor: 'transparent',
-    animation:{
+    animation: {
       duration: 800,
       easing: 'out',
       startup: true
@@ -169,15 +168,16 @@ function drawCurrentChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '현재 확진 환자수',
-    hAxis: {title: '현재 확진자', titleTextStyle: {color: '#333'}},
+    hAxis: {
+      title: '현재 확진자',
+      titleTextStyle: {color: '#333'},
+      format: 'yyyy.MM.dd',
+    },
     vAxis: {minValue: 0},
     legend: 'none',
     chartArea: {width: '80%',},
-    hAxis: {
-      format: 'yyyy.MM.dd',
-    },
     backgroundColor: 'transparent',
-    animation:{
+    animation: {
       duration: 1000,
       easing: 'out',
       startup: true
