@@ -3,6 +3,7 @@ google.charts.setOnLoadCallback(drawAgeChart);
 google.charts.setOnLoadCallback(drawGenderChart);
 google.charts.setOnLoadCallback(drawSeverityChart);
 google.charts.setOnLoadCallback(drawTreatmentChart);
+google.charts.setOnLoadCallback(drawDischargeChart);
 google.charts.setOnLoadCallback(drawDaysChart);
 google.charts.setOnLoadCallback(drawCurrentChart);
 
@@ -67,9 +68,11 @@ function drawGenderChart() {
 function drawSeverityChart() {
   var data = google.visualization.arrayToDataTable([
     ['Severity', 'Count'],
-    ['경증', 51],
-    ['중등증', 49],
-    ['중증', 49],
+    ['1', 51],
+    ['2', 49],
+    ['3', 49],
+    ['4', 49],
+    ['5', 49],
   ]);
 
   var options = {
@@ -112,24 +115,50 @@ function drawTreatmentChart() {
   chart.draw(data, options);
 }
 
-function drawDaysChart() {
+function drawDischargeChart() {
   var data = google.visualization.arrayToDataTable([
-    ['Days', 'Count'],
-    [new Date(2020, 11, 1), 20],
-    [new Date(2020, 11, 2), 30],
-    [new Date(2020, 11, 3), 24],
-    [new Date(2020, 11, 4), 45],
-    [new Date(2020, 11, 5), 81],
-    [new Date(2020, 11, 6), 52],
-    [new Date(2020, 11, 7), 64],
-    [new Date(2020, 11, 8), 42],
-    [new Date(2020, 11, 9), 15],
-    [new Date(2020, 11, 10), 8],
+    ['Discharge', 'Count'],
+    ['자택', 51],
+    ['전원', 51],
+    ['생활치료소', 51],
+    ['요양원', 49],
+    ['사망', 49],
   ]);
 
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
-    title: '일별 확진 통계',
+    title: '퇴원 현황',
+    legend: {position: 'bottom',},
+    backgroundColor: 'transparent',
+    animation: {
+      duration: 1600,
+      easing: 'out',
+      startup: true
+    },
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('chart-discharge'));
+  chart.draw(data, options);
+}
+
+function drawDaysChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Days', 'Confirmation', 'Discharge'],
+    [new Date(2020, 11, 1), 20, 1],
+    [new Date(2020, 11, 2), 30, 3],
+    [new Date(2020, 11, 3), 24, 4],
+    [new Date(2020, 11, 4), 45, 8],
+    [new Date(2020, 11, 5), 81, 12],
+    [new Date(2020, 11, 6), 52, 15],
+    [new Date(2020, 11, 7), 64, 22],
+    [new Date(2020, 11, 8), 42, 18],
+    [new Date(2020, 11, 9), 15, 25],
+    [new Date(2020, 11, 10), 8, 30],
+  ]);
+
+  var options = {
+    colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
+    title: '일별 확진/퇴원 환자 통계',
     hAxis: {
       title: '일별 확진자',
       titleTextStyle: {color: '#333'},

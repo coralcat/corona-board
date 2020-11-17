@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
     })*/
   }
 
-  // 임상시험환자정보: 환자상세정보 열기
-  const clinicalTrialPatientList = document.querySelector('.clinical-trial-patient')
-  const patientDetail = document.querySelector('.patient-detail')
+  // 임상시험 대상환자 조회: 환자상세정보 열기
+  const clinicalTrialPatientList = document.querySelector('.clinical-trials')
+  const patientDetail = document.querySelector('.clinical-trials-detail')
 
-  // 임상시험환자정보: 환자상세정보
-  const patientDetailMenu = document.querySelector('.patient-detail-menu')
+  // 임상시험 대상환자 조회: 환자상세정보
+  const patientDetailMenu = document.querySelector('.clinical-trials-detail-menu')
 
   function activeClass2(e) {
     const menus = document.querySelectorAll('.active-patient-menu');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  // 임상시험환자 CSV 파일 업로드
+  // 임상시험대상환자 CSV 파일 업로드
 
   const fileAttachment = document.getElementById("FileAttachment")
 
