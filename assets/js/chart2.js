@@ -3,9 +3,9 @@ google.charts.setOnLoadCallback(drawAgeChart);
 google.charts.setOnLoadCallback(drawGenderChart);
 google.charts.setOnLoadCallback(drawSeverityChart);
 google.charts.setOnLoadCallback(drawTreatmentChart);
-google.charts.setOnLoadCallback(drawDischargeChart);
+google.charts.setOnLoadCallback(drawHospitalChart);
 google.charts.setOnLoadCallback(drawDaysChart);
-google.charts.setOnLoadCallback(drawCurrentChart);
+google.charts.setOnLoadCallback(drawTotalChart);
 
 function drawAgeChart() {
   var data = google.visualization.arrayToDataTable([
@@ -115,19 +115,20 @@ function drawTreatmentChart() {
   chart.draw(data, options);
 }
 
-function drawDischargeChart() {
+function drawHospitalChart() {
   var data = google.visualization.arrayToDataTable([
-    ['Discharge', 'Count'],
-    ['자택', 51],
-    ['전원', 51],
-    ['생활치료소', 51],
-    ['요양원', 49],
-    ['사망', 49],
+    ['Hospital', 'Count'],
+    ['수원', 51],
+    ['파주', 51],
+    ['포천', 51],
+    ['의정부', 49],
+    ['안', 49],
+    ['이천', 49],
   ]);
 
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
-    title: '퇴원 현황',
+    title: '병원 현황',
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
     animation: {
@@ -137,7 +138,7 @@ function drawDischargeChart() {
     },
   };
 
-  var chart = new google.visualization.PieChart(document.getElementById('chart-discharge'));
+  var chart = new google.visualization.PieChart(document.getElementById('chart-hospital'));
   chart.draw(data, options);
 }
 
@@ -178,7 +179,7 @@ function drawDaysChart() {
   chart.draw(data, options);
 }
 
-function drawCurrentChart() {
+function drawTotalChart() {
   var data = google.visualization.arrayToDataTable([
     ['Dates', 'Count'],
     [new Date(2020, 11, 1), 20],
@@ -195,7 +196,7 @@ function drawCurrentChart() {
 
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
-    title: '현재 확진 환자수',
+    title: '총 누적 임상시험 환자 ',
     hAxis: {
       titleTextStyle: {color: '#333'},
       format: 'yyyy.MM.dd',
@@ -211,6 +212,6 @@ function drawCurrentChart() {
     },
   };
 
-  var chart = new google.visualization.ColumnChart(document.getElementById('chart-current'));
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart-total'));
   chart.draw(data, options);
 }
