@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /*if (document.location.hash == "" || document.location.hash == "#")
     document.location.hash = "#all";*/
 
-  function activeClass(e) {
+  function activeSubMenu(e) {
     var elems = document.querySelectorAll(".active-sub-menu");
 
     Array.from(elems).forEach(el => {
@@ -29,31 +29,76 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (subMenu) {
-    subMenu.addEventListener('click', activeClass)
+    subMenu.addEventListener('click', activeSubMenu)
     /*subMenu.addEventListener('mouseover', () => {
       document.getElementsByClassName('container').style.backgroundPosition = "100% 0"
     })*/
   }
 
+
+  // 환자조회: 내역조회
+  const iconMore = document.querySelector('.ico-more');
+
+  function activeSubRow(e) {
+    var elems = document.querySelectorAll(".active-sub-row");
+
+    Array.from(elems).forEach(el => {
+      el.classList.remove('active-sub-row');
+    });
+
+    const row = e.target.parentNode
+    console.log(row)
+    row.classList.add("active-sub-row");
+  }
+
+  if (iconMore) {
+    iconMore.addEventListener('click', activeSubRow)
+  }
+
+
+  //환자조회: 체크박스
+
+  function check(checked = true) {
+    const cbs = document.querySelectorAll('input[name="check-patient"]');
+    cbs.forEach((cb) => {
+      cb.checked = checked
+    })
+  }
+
+  function checkAll() {
+    check();
+    this.onclick = uncheckAll
+  }
+
+  function uncheckAll() {
+    check(false);
+    this.onclick = checkAll
+  }
+
+  const btnCheckAll = document.querySelector('#check-all');
+  btnCheckAll.onclick = checkAll;
+
+
+
   // 임상시험 대상환자 조회: 환자상세정보 열기
-  const clinicalTrialPatientList = document.querySelector('.clinical-trials')
-  const patientDetail = document.querySelector('.clinical-trials-detail')
+  const clinicalTrialPatientList = document.querySelector('.clinical-trials');
+  const patientDetail = document.querySelector('.clinical-trials-detail');
 
   // 임상시험 대상환자 조회: 환자상세정보
-  const patientDetailMenu = document.querySelector('.clinical-trials-detail-menu')
+  const patientDetailMenu = document.querySelector('.clinical-trials-detail-menu');
 
   function activeClass2(e) {
     const menus = document.querySelectorAll('.active-patient-menu');
 
     Array.from(menus).forEach(menu => {
       menu.classList.remove('active-patient-menu')
-    })
+    });
     e.target.classList.add('active-patient-menu')
   }
 
   if (clinicalTrialPatientList) {
     clinicalTrialPatientList.addEventListener('click', () => {
-      patientDetail.classList.add('active')
+      patientDetail.classList.add('active');
       window.location.hash='visited'
     })
     patientDetailMenu.addEventListener('click', activeClass2)
