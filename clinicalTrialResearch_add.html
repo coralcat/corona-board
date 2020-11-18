@@ -11,13 +11,13 @@
     <script src="assets/lib/jquery-3.5.1.min.js"></script>
     <script src="assets/lib/jquery-ui.min.js"></script>
     <script>
-      $(function () {
-        $("#startDate, #endDate, #dischargeDate").datepicker({
-          changeMonth: true,
-          changeYear: true,
-          dateFormat: 'yy-mm-dd'
+        $(function () {
+            $("#startDate, #endDate, #dischargeDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy-mm-dd'
+            });
         });
-      });
     </script>
 </head>
 <body>
@@ -520,23 +520,23 @@
                     <label class="input-title">눈가림종류</label>
                     <div class="input-select">
                         <div>
-                            <input type="radio" name="select-arbitration" id="participant">
+                            <input type="radio" name="select-blindfold" id="participant">
                             <label for="participant">participant</label>
                         </div>
                         <div>
-                            <input type="radio" name="select-arbitration" id="care-provider">
+                            <input type="radio" name="select-blindfold" id="care-provider">
                             <label for="care-provider">care provider</label>
                         </div>
                         <div>
-                            <input type="radio" name="select-arbitration" id="investigator">
+                            <input type="radio" name="select-blindfold" id="investigator">
                             <label for="investigator">investigator</label>
                         </div>
                         <div>
-                            <input type="radio" name="select-arbitration" id="outcomes-assessor">
+                            <input type="radio" name="select-blindfold" id="outcomes-assessor">
                             <label for="outcomes-assessor">outcomes assessor</label>
                         </div>
                         <div>
-                            <input type="radio" name="select-arbitration" id="no-masking">
+                            <input type="radio" name="select-blindfold" id="no-masking">
                             <label for="no-masking">no masking</label>
                         </div>
                     </div>
@@ -679,6 +679,7 @@
                         </div>
                     </div>
                 </div>
+                <button>군 추가</button>
             </div>
 
             <div class="row">
@@ -729,6 +730,121 @@
                         <label for="other-arbitration">other</label>
                     </div>
                 </div>
+            </div>
+            <div class="row row-group">
+                <div class="column">
+                    <label class="input-title">중재이름</label>
+                    <input type="text">
+                </div>
+                <div class="column">
+                    <label class="input-title">중재설명</label>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label class="input-title">결과변수</label>
+                    <input type="text">
+                </div>
+                <div class="column">
+                    <div class="selectbox">
+                        <select>
+                            <option value="년">결과변수유형</option>
+                            <option value="월">1</option>
+                            <option value="일">2</option>
+                        </select>
+                    </div>
+                    <button>결과변수추가</button>
+                </div>
+                <div class="column">
+                    <label class="input-title">평가시기</label>
+                    <input type="text">
+                </div>
+            </div>
+
+            <h3>참여요건</h3>
+            <div class="row">
+                <div class="column">
+                    <label class="input-title">성별</label>
+                    <div class="input-select">
+                        <div>
+                            <input type="radio" name="select-gender" id="male">
+                            <label for="male">남성</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="select-gender" id="female">
+                            <label for="female">여성</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="select-gender" id="irrelevant">
+                            <label for="irrelevant">무관</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <label class="input-title">연령기준하한</label>
+                    <input type="text">
+                    <div class="selectbox">
+                        <select>
+                            <option value="세">세</option>
+                            <option value="개월">개월</option>
+                            <option value="주">주</option>
+                            <option value="일">일</option>
+                            <option value="시간">시간</option>
+                            <option value="분">분</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <label class="input-title">연령기준상한</label>
+                    <input type="text">
+                    <div class="selectbox">
+                        <select>
+                            <option value="세">세</option>
+                            <option value="개월">개월</option>
+                            <option value="주">주</option>
+                            <option value="일">일</option>
+                            <option value="시간">시간</option>
+                            <option value="분">분</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label class="input-title">건강대상 참여여부</label>
+                    <div class="input-select">
+                        <div>
+                            <input type="radio" name="select-gender" id="yes">
+                            <label for="yes">yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="select-gender" id="no">
+                            <label for="no">no</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <label class="input-title">샘플링 방법</label>
+                    <div class="input-select">
+                        <div>
+                            <input type="radio" name="select-sampling" id="probability-sample">
+                            <label for="probability-sample">probability sample</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="select-sampling" id="non-probability-sample">
+                            <label for="non-probability-sample">non-probability sample</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-title">
+                <label class="input-title">선정기준</label>
+                <input type="text">
+            </div>
+            <div class="row row-title">
+                <label class="input-title">제외기준</label>
+                <input type="text">
             </div>
         </section>
     </main>
