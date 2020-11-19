@@ -31,7 +31,7 @@
             <small>확진환자 정보관리</small>
             <ul>
                 <li>
-                    <a href="index.html#all">
+                    <a href="index.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                             <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                         </svg>
@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="clinicalTrialPatient_add.html">
+                    <a href="clinicalTrialPatient_upload.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                             <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
                         </svg>
@@ -141,19 +141,19 @@
         <section>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">연구 ID</label>
+                    <div class="input-title">연구 ID</div>
                     <input type="text">
                 </div>
                 <div class="column">
-                    <label class="input-title">프로토콜 번호</label>
+                    <div class="input-title">프로토콜 번호</div>
                     <input type="text">
                 </div>
                 <div class="column">
-                    <label class="input-title">연구제목요약</label>
+                    <div class="input-title">연구제목요약</div>
                     <input type="text">
                 </div>
                 <div class="column">
-                    <label class="input-title">연구별칭</label>
+                    <div class="input-title">연구별칭</div>
                     <input type="text">
                 </div>
             </div>
@@ -486,7 +486,7 @@
             </div>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">중재유형설계</label>
+                    <label>중재유형설계</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-arbitration" id="single-group">
@@ -511,13 +511,13 @@
                     </div>
                 </div>
                 <div class="column">
-                    <label class="input-title">목표 대상자수</label>
+                    <label>목표 대상자수</label>
                     <input type="text">
                 </div>
             </div>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">눈가림종류</label>
+                    <label>눈가림종류</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-blindfold" id="participant">
@@ -542,7 +542,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <label class="input-title">관찰기간</label>
+                    <label>관찰기간</label>
                     <input type="text">
                     <div class="selectbox">
                         <select>
@@ -555,7 +555,7 @@
             </div>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">할당방법</label>
+                    <label>할당방법</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-allocate" id="none-allocate">
@@ -572,7 +572,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <label class="input-title">연구관점</label>
+                    <label>연구관점</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-perspective" id="retrospective">
@@ -595,7 +595,7 @@
             </div>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">연구디자인</label>
+                    <label>연구디자인</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-design" id="cohort">
@@ -629,7 +629,7 @@
                 </div>
             </div>
             <div class="row">
-                <label class="input-title">생물자원 저장종류</label>
+                <label>생물자원 저장종류</label>
                 <div class="input-select">
                     <div>
                         <input type="radio" name="select-resources" id="non-retained">
@@ -647,11 +647,11 @@
             </div>
             <div class="row row-group">
                 <div class="column">
-                    <label class="input-title">군 이름</label>
+                    <label>군 이름</label>
                     <input type="text">
                 </div>
                 <div class="column">
-                    <label class="input-title">군 유형</label>
+                    <label>군 유형</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-group" id="experimental">
@@ -683,7 +683,7 @@
             </div>
 
             <div class="row">
-                <label class="input-title">중재 유형</label>
+                <label>중재 유형</label>
                 <div class="input-select">
                     <div>
                         <input type="radio" name="select-arbitration-type" id="drug">
@@ -733,17 +733,17 @@
             </div>
             <div class="row row-group">
                 <div class="column">
-                    <label class="input-title">중재이름</label>
+                    <label>중재이름</label>
                     <input type="text">
                 </div>
                 <div class="column">
-                    <label class="input-title">중재설명</label>
+                    <label>중재설명</label>
                     <input type="text">
                 </div>
             </div>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">결과변수</label>
+                    <label>결과변수</label>
                     <input type="text">
                 </div>
                 <div class="column">
@@ -757,7 +757,7 @@
                     <button>결과변수추가</button>
                 </div>
                 <div class="column">
-                    <label class="input-title">평가시기</label>
+                    <label>평가시기</label>
                     <input type="text">
                 </div>
             </div>
@@ -765,7 +765,7 @@
             <h3>참여요건</h3>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">성별</label>
+                    <label>성별</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-gender" id="male">
@@ -782,7 +782,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <label class="input-title">연령기준하한</label>
+                    <label>연령기준하한</label>
                     <input type="text">
                     <div class="selectbox">
                         <select>
@@ -796,7 +796,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <label class="input-title">연령기준상한</label>
+                    <label>연령기준상한</label>
                     <input type="text">
                     <div class="selectbox">
                         <select>
@@ -812,7 +812,7 @@
             </div>
             <div class="row">
                 <div class="column">
-                    <label class="input-title">건강대상 참여여부</label>
+                    <label>건강대상 참여여부</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-gender" id="yes">
@@ -825,7 +825,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <label class="input-title">샘플링 방법</label>
+                    <label>샘플링 방법</label>
                     <div class="input-select">
                         <div>
                             <input type="radio" name="select-sampling" id="probability-sample">
@@ -839,11 +839,11 @@
                 </div>
             </div>
             <div class="row row-title">
-                <label class="input-title">선정기준</label>
+                <label>선정기준</label>
                 <input type="text">
             </div>
             <div class="row row-title">
-                <label class="input-title">제외기준</label>
+                <label>제외기준</label>
                 <input type="text">
             </div>
         </section>

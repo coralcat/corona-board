@@ -10,30 +10,32 @@ document.documentElement.addEventListener('touchstart', function (event) {
   }
 }, false)
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
-  // 환자현황: 병원 선택
-  const subMenu = document.querySelector('.sub-menu')
+  // 환자현황: 선택한 병원 대시보드 화면 띄우기
+  const subMenus = document.querySelectorAll('.sub-menu li')
+  const sections = document.querySelectorAll('.dashboard section')
 
-  /*if (document.location.hash == "" || document.location.hash == "#")
-    document.location.hash = "#all";*/
-
-  function activeSubMenu(e) {
-    var elems = document.querySelectorAll(".active-sub-menu");
-
-    Array.from(elems).forEach(el => {
-      el.classList.remove('active-sub-menu');
+  const init = (n) => {
+    sections.forEach((section) => {
+      section.style.display = "none"
+      subMenus.forEach((subMenu) => {
+        subMenu.classList.remove("active")
+      })
     })
-    // mark as active selected menu item
-    e.target.classList.add("active-sub-menu");
+    sections[n].style.display = "flex"
+    subMenus[n].classList.add("active")
   }
 
-  if (subMenu) {
-    subMenu.addEventListener('click', activeSubMenu)
-    /*subMenu.addEventListener('mouseover', () => {
-      document.getElementsByClassName('container').style.backgroundPosition = "100% 0"
-    })*/
-  }
+  subMenus.forEach((subMenu, index) => {
+    subMenu.addEventListener("click", () => {
+      init(index)
+    })
+    init(0)
+  })
+
 
 
   // 환자조회: 내역조회
@@ -56,8 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  //환자조회: 체크박스
 
+  //환자조회: 체크박스
   function check(checked = true) {
     const cbs = document.querySelectorAll('input[name="check-patient"]');
     cbs.forEach((cb) => {
@@ -76,7 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const btnCheckAll = document.querySelector('#check-all');
-  btnCheckAll.onclick = checkAll;
+  if(btnCheckAll) {
+    btnCheckAll.onclick = checkAll;
+  }
 
 
 

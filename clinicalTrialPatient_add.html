@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="">
-    <title>입원 환자 별 정보 업로드</title>
+    <title>코로나 현황판</title>
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/lib/jquery-3.5.1.min.js"></script>
+    <script src="assets/lib/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $("#investigationDate, #contactInfectedDate, #sideEffectDate, #bodyMeasurementDate").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: 'yy-mm-dd'
+        });
+      });
+    </script>
 </head>
 <body>
 <div class="container">
@@ -20,7 +31,7 @@
             <small>확진환자 정보관리</small>
             <ul>
                 <li>
-                    <a href="index.html#all">
+                    <a href="index.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                             <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                         </svg>
@@ -78,7 +89,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active" href="clinicalTrialPatient_add.html">
+                    <a href="clinicalTrialPatient_upload.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                             <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
                         </svg>
@@ -122,25 +133,164 @@
             <span>admin</span>
         </button>
     </aside>
-    <main class="patient_add">
+    <main class="clinical-trial-patient-add">
         <header>
-            <h3>임상시험 대상환자 정보 업로드</h3>
+            <h3>임상시험 대상환자 상세정보 추가<small>환자 ID: 6544513</small></h3>
             <button>등록</button>
         </header>
         <section>
             <div class="row">
-                <div class="input-title">
-                    파일 선택
+                <div class="input-title">병원</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-hospital" id="suwon">
+                        <label for="suwon">수원병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="ansung">
+                        <label for="ansung">안성병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="euijungbu">
+                        <label for="euijungbu">의정부병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="pocheon">
+                        <label for="pocheon">포천병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="paju">
+                        <label for="paju">파주병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="icheon">
+                        <label for="icheon">이천병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="ajou">
+                        <label for="ajou">아주대병원</label>
+                    </div>
                 </div>
-                <button class="btn-file">
-                    <span>파일 찾기</span>
-                    <input type="file" accept=".csv" name="FileAttachment" id="FileAttachment" class="upload"/>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="input-title">조사일</div>
+                    <input class="datepicker" type="text" id="investigationDate">
+                </div>
+                <div class="column">
+                    <div class="input-title">연구 ID</div>
+                    <div class="selectbox">
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="input-title">감염추정지역</div>
+                    <div class="selectbox">
+                        <select>
+                            <option value="">특별시/도</option>
+                        </select>
+                    </div>
+                    <div class="selectbox">
+                        <select>
+                            <option value="">시/군/구</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="input-title">확진번호</div>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-title">감염자 접촉여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-contactInfected" id="contactInfected-yes">
+                        <label for="contactInfected-yes">yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-contactInfected" id="contactInfected-no">
+                        <label for="contactInfected-no">no</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-title">감염자 접촉일시</div>
+                <input class="datepicker" type="text" id="contactInfectedDate">
+                <div class="selectbox">
+                    <select>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-title">의료종사자 여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-yes">
+                        <label for="healthcareWorkers-yes">yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-no">
+                        <label for="healthcareWorkers-no">no</label>
+                    </div>
+                </div>
+            </div>
+
+            <h3>부작용 정보</h3>
+            <div class="row">
+                <div class="input-title">부작용 발생일자</div>
+                <input class="datepicker" type="text" id="sideEffectDate">
+            </div>
+            <div class="row">
+                <button class="btn-plus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
                 </button>
-                <span class="upload-file">Maximum file size is 100mb</span>
+                <div class="column">
+                    <div class="input-title">부작용 테이블코드</div>
+                    <input type="text">
+                </div>
+                <div class="column">
+                    <div class="input-title">부작용 컬럼코드</div>
+                    <input type="text">
+                </div>
+            </div>
+
+            <h3>신체계측 정보</h3>
+            <div class="row">
+                <button class="btn-plus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+                <div class="column">
+                    <div class="input-title">신체계측 조사일</div>
+                    <input type="text" class="datepicker" id="bodyMeasurementDate">
+                </div>
+                <div class="column">
+                    <div class="input-title">신체계측값</div>
+                    <input type="text">
+                    <div class="selectbox">
+                        <select>
+                            <option value="키">키</option>
+                            <option value="몸무게">몸무게</option>
+                            <option value="체온">체온</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 </div>
-<script src="assets/js/script.js"></script>
 </body>
 </html>
