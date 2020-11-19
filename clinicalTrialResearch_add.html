@@ -341,7 +341,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-group">
                 <div class="column">
                     <div class="input-title">임상시험 IND번호</div>
                     <input type="text">
@@ -373,7 +373,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-group">
                 <div class="column">
                     <div class="input-title">IRB승인번호</div>
                     <input type="text">
@@ -391,7 +391,7 @@
                 <div class="input-title">연구요약</div>
                 <input type="text">
             </div>
-            <div class="row">
+            <div class="row row-group">
                 <div class="column">
                     <div class="input-title">연구대상 질환코드</div>
                     <input type="text">
@@ -745,25 +745,29 @@
                     <input type="text">
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-group">
                 <div class="column">
                     <div class="input-title">결과변수</div>
                     <input type="text">
                 </div>
                 <div class="column">
+                    <div class="input-title">결과변수유형</div>
                     <div class="selectbox">
                         <select>
-                            <option value="년">결과변수유형</option>
-                            <option value="월">1</option>
-                            <option value="일">2</option>
+                            <option value="primary-outcome-measure">primary outcome measure</option>
+                            <option value="secondary-outcome-measure ">secondary outcome measure</option>
                         </select>
                     </div>
-                    <button>결과변수추가</button>
+                    <button class="btn-plus">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
                 </div>
-                <div class="column">
-                    <div class="input-title">평가시기</div>
-                    <input type="text">
-                </div>
+            </div>
+            <div class="row">
+                <div class="input-title">평가시기</div>
+                <input type="text">
             </div>
 
             <h3>참여요건</h3>
@@ -814,7 +818,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-group">
                 <div class="column">
                     <div class="input-title">건강대상 참여여부</div>
                     <div class="input-select">
