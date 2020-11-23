@@ -13,14 +13,14 @@
 <body>
 <div class="container">
     
-    <aside>
-        <header>
-            <div class="logo"></div>
-            <div class="id">id: AA0000</div>
-            <button class="btn-login" onclick="location.href='login.html'">logout</button>
-        </header>
-        
-        
+<aside>
+    <header>
+        <div class="logo"></div>
+        <div class="id">id: AA0000</div>
+        <button class="btn-login" onclick="location.href='login.html'">logout</button>
+    </header>
+    
+    
     <nav class="menu">
         <small>확진환자 정보관리</small>
         <ul>
@@ -54,7 +54,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                     </svg>
-                    <span>임상시험 정보조회</span>
+                    <span>임상시험 정보</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
                     </svg>
@@ -72,14 +72,14 @@
                 </a>
             </li>
         </ul>
-        <small>임상시험 대상환자 정보관리</small>
+        <small>임상시험 참여자 정보관리</small>
         <ul>
             <li>
                 <a class="" href="clinicalTrialPatient_dashboard.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                     </svg>
-                    <span>임상시험 대상환자 현황</span>
+                    <span>임상시험 참여자 현황</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
                     </svg>
@@ -90,7 +90,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                     </svg>
-                    <span>임상시험 대상환자 조회</span>
+                    <span>임상시험 참여자 정보</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
                     </svg>
@@ -105,89 +105,88 @@
         <span>admin</span>
     </button>
 
-    </aside>
-    <main class="user-edit admin">
-        <header>
-            <h3>사용자 정보</h3>
-            <div class="btn-container">
-                <button class="btn-cancel" onclick="history.back()">취소</button>
-                <button>수정</button>
-            </div>
-        </header>
-        <section>
-            <div class="row">
-                <div class="input-title">이름</div>
-                <input type="text" value="홍길동">
-            </div>
-            <div class="row">
-                <div class="input-title">ID</div>
-                <input type="text" value="AA0000" readonly>
-            </div>
-            <div class="row">
-                <div class="input-title">password</div>
-                <input type="password" value="1234567890">
-            </div>
-            <div class="row">
-                <div class="input-title">병원</div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-hospital" id="suwon">
-                        <label for="suwon">수원병원</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-hospital" id="ansung" checked>
-                        <label for="ansung">안성병원</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-hospital" id="euijungbu">
-                        <label for="euijungbu">의정부병원</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-hospital" id="pocheon">
-                        <label for="pocheon">포천병원</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-hospital" id="paju">
-                        <label for="paju">파주병원</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-hospital" id="icheon">
-                        <label for="icheon">이천병원</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-hospital" id="ajou">
-                        <label for="ajou">아주대병원</label>
-                    </div>
+</aside>
+<main class="user-edit admin">
+    <header>
+        <h3>사용자 정보</h3>
+        <div class="btn-container">
+            <button class="btn-cancel" onclick="history.back()">취소</button>
+            <button>수정</button>
+        </div>
+    </header>
+    <section>
+        <div class="row">
+            <div class="input-title">이름</div>
+            <input type="text" value="홍길동">
+        </div>
+        <div class="row">
+            <div class="input-title">ID</div>
+            <input type="text" value="AA0000" readonly>
+        </div>
+        <div class="row">
+            <div class="input-title">password</div>
+            <input type="password" value="1234567890">
+        </div>
+        <div class="row">
+            <div class="input-title">병원</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-hospital" id="suwon">
+                    <label for="suwon">수원병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="ansung" checked>
+                    <label for="ansung">안성병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="euijungbu">
+                    <label for="euijungbu">의정부병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="pocheon">
+                    <label for="pocheon">포천병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="paju">
+                    <label for="paju">파주병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="icheon">
+                    <label for="icheon">이천병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="ajou">
+                    <label for="ajou">아주대병원</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-title">권한</div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-authority" id="read">
-                        <label for="read">읽기만 가능</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-authority" id="edit" checked>
-                        <label for="edit">소속병원만 읽기/수정 가능</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-authority" id="edit-all">
-                        <label for="edit-all">모든 읽기/수정 가능</label>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="input-title">권한</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-authority" id="read">
+                    <label for="read">읽기만 가능</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-authority" id="edit" checked>
+                    <label for="edit">소속병원만 읽기/수정 가능</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-authority" id="edit-all">
+                    <label for="edit-all">모든 읽기/수정 가능</label>
                 </div>
             </div>
-        </section>
-    </main>
-</div>
+        </div>
+    </section>
+</main>
 <script>
-  $(function () {
-    $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: 'yy-mm-dd'
+    $(function () {
+        $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd'
+        });
     });
-  });
 </script>
 
 </div>

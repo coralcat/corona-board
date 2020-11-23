@@ -95,8 +95,37 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.hash = 'visited';
     });
     patientDetailMenu.addEventListener('click', activeClass2);
+  } // 임상시험대상환자 상세정보 추가
+
+
+  var overlay = document.querySelector('.overlay');
+  var modal = document.querySelector('.modal');
+  var modalConfirmationNumber = document.querySelector('.modal-confirmation-number');
+  var confirmationNumber = document.querySelector('.col-confirmation-number input');
+
+  if (confirmationNumber) {
+    confirmationNumber.addEventListener('click', function () {
+      modalConfirmationNumber.classList.add('active');
+      overlay.classList.add('active');
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', function () {
+      overlay.classList.remove('active');
+      modal.classList.remove('active');
+    });
   } // 임상시험대상환자 CSV 파일 업로드
 
+
+  var csvUpload = document.querySelector('.csv-upload');
+
+  if (csvUpload) {
+    csvUpload.addEventListener('click', function () {
+      modal.classList.add('active');
+      overlay.classList.add('active');
+    });
+  }
 
   var fileAttachment = document.getElementById("FileAttachment");
 
