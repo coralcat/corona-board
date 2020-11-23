@@ -3,681 +3,754 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="">
-    <title>코로나 현황판</title>
-    <link rel="stylesheet" href="assets/css/common.css">
+    <title>확진환자 현황</title>
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <script src="assets/js/script.js"></script>
     <script src="assets/lib/jquery-3.5.1.min.js"></script>
     <script src="assets/lib/jquery-ui.min.js"></script>
-    <script>
-      $(function () {
-        $("#startDate, #endDate, #dischargeDate").datepicker({
-          changeMonth: true,
-          changeYear: true,
-          dateFormat: 'yy-mm-dd'
-        });
-      });
-    </script>
+    <script src="assets/js/script.js"></script>
 </head>
 <body>
 <div class="container">
-    <aside>
-        <header>
-            <div class="logo"></div>
-            <button class="btn-login" onclick="location.href='login.html'">login</button>
-        </header>
-        <div class="menu">
-            <small>확진환자 정보관리</small>
-            <ul>
-                <li>
-                    <a href="index.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                        </svg>
-                        <span>확진환자 현황</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="patient_list.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span>확진환자 조회</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="patient_add.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span>확진환자 신규등록</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-            <small>임상시험 대상환자 정보관리</small>
-            <ul>
-                <li>
-                    <a href="clinicalTrialPatient_dashboard.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                        </svg>
-                        <span>임상시험 대상환자 현황</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="clinicalTrialPatient_list.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span>임상시험 대상환자 조회</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="clinicalTrialPatient_upload.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-                        </svg>
-                        <span>임상시험 대상환자 업로드</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-            <small>임상시험 정보관리</small>
-            <ul>
-                <li>
-                    <a href="clinicalTrialResearch_list.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span>임상시험 정보조회</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a class="active" href="clinicalTrialResearch_add.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span>임상시험 신규등록</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
+    
+<aside>
+    <header>
+        <div class="logo"></div>
+        <button class="btn-login" onclick="location.href='login.html'">login</button>
+    </header>
+    
+    
+    <nav class="menu">
+        <small>확진환자 정보관리</small>
+        <ul>
+            <li>
+                <a class="" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <span>확진환자 현황</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="" href="patient_list.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>확진환자 조회</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="" href="patient_add.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>확진환자 신규등록</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        <small>임상시험 대상환자 정보관리</small>
+        <ul>
+            <li>
+                <a class="" href="clinicalTrialPatient_dashboard.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <span>임상시험 대상환자 현황</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="" href="clinicalTrialPatient_list.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>임상시험 대상환자 조회</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="" href="clinicalTrialPatient_upload.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                    </svg>
+                    <span>임상시험 대상환자 업로드</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        <small>임상시험 정보관리</small>
+        <ul>
+            <li>
+                <a class="" href="clinicalTrialResearch_list.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>임상시험 정보조회</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="active" href="clinicalTrialResearch_add.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>임상시험 신규등록</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <button class="btn-admin " onclick="location.href='user_list.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+        </svg>
+        <span>admin</span>
+    </button>
+
+</aside>
+<main class="clinical-trial-research-add">
+    <header>
+        <h3>임상시험 정보 신규등록</h3>
+        <button>등록</button>
+    </header>
+    <section>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">연구 ID</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">프로토콜 번호</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">연구제목요약</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">연구별칭</div>
+                <input type="text">
+            </div>
         </div>
-        <button class="btn-admin" onclick="location.href='user_list.html'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
-            </svg>
-            <span>admin</span>
-        </button>
-    </aside>
-    <main class="clinical-trial-research-add">
-        <header>
-            <h3>임상시험 정보 신규등록</h3>
-            <button>등록</button>
-        </header>
-        <section>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">연구 ID</div>
-                    <input type="text">
+        <div class="row row-title">
+            <div class="input-title">연구제목</div>
+            <input type="text">
+        </div>
+        <div class="row">
+            <div class="input-title">연구유형</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-research-type" id="interventional">
+                    <label for="interventional">interventional</label>
                 </div>
-                <div class="column">
-                    <div class="input-title">프로토콜 번호</div>
-                    <input type="text">
+                <div>
+                    <input type="radio" name="select-research-type" id="observational">
+                    <label for="observational">observational</label>
                 </div>
-                <div class="column">
-                    <div class="input-title">연구제목요약</div>
-                    <input type="text">
+                <div>
+                    <input type="radio" name="select-research-type" id="patient-registry">
+                    <label for="patient-registry">patient registry</label>
                 </div>
-                <div class="column">
-                    <div class="input-title">연구별칭</div>
-                    <input type="text">
+                <div>
+                    <input type="radio" name="select-research-type" id="expanded-access">
+                    <label for="expanded-access">expanded access</label>
                 </div>
             </div>
-            <div class="row row-title">
-                <div class="input-title">연구제목</div>
-                <input type="text">
+        </div>
+        <div class="row">
+            <div class="input-title">타시스템 등록번호</div>
+            <input type="text">
+            <div class="selectbox">
+                <select>
+                    <option value="CRIS">CRIS</option>
+                    <option value="ClinicalTrials">ClinicalTrials</option>
+                    <option value="gov">gov</option>
+                    <option value="ANZCTR">ANZCTR</option>
+                    <option value="UMIN">UMIN</option>
+                    <option value="ISRCTN">ISRCTN</option>
+                    <option value="UTN">UTN</option>
+                    <option value="other">other</option>
+                </select>
             </div>
-            <div class="row">
-                <div class="input-title">연구유형</div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-research-type" id="interventional">
-                        <label for="interventional">interventional</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-type" id="observational">
-                        <label for="observational">observational</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-type" id="patient-registry">
-                        <label for="patient-registry">patient registry</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-type" id="expanded-access">
-                        <label for="expanded-access">expanded access</label>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="input-title">연구모집현황</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-research-status" id="not-yet">
+                    <label for="not-yet">not yet</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-research-status" id="recruiting">
+                    <label for="recruiting">recruiting</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-research-status" id="enrolling-by-invitation">
+                    <label for="enrolling-by-invitation">enrolling by invitation</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-research-status" id="not-recruiting">
+                    <label for="not-recruiting">active, not recruiting</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-research-status" id="completed">
+                    <label for="completed">completed</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-research-status" id="suspended">
+                    <label for="suspended">suspended</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-research-status" id="terminated">
+                    <label for="terminated">terminated</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-research-status" id="withdrawn">
+                    <label for="withdrawn">withdrawn</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-title">타시스템 등록번호</div>
-                <input type="text">
+        </div>
+        <div class="row">
+            <div class="input-title">연구종료사유</div>
+            <input type="text">
+            <small>* Suspended, Terminated, withdrawn인 경우 작성</small>
+        </div>
+        <div class="row row-date">
+            <div class="column">
+                <div class="input-title">연구시작일자</div>
+                <input class="datepicker" type="text" id="startDate">
                 <div class="selectbox">
                     <select>
-                        <option value="CRIS">CRIS</option>
-                        <option value="ClinicalTrials">ClinicalTrials</option>
-                        <option value="gov">gov</option>
-                        <option value="ANZCTR">ANZCTR</option>
-                        <option value="UMIN">UMIN</option>
-                        <option value="ISRCTN">ISRCTN</option>
-                        <option value="UTN">UTN</option>
-                        <option value="other">other</option>
+                        <option value="">시간</option>
+                        <option value="">01</option>
+                        <option value="">02</option>
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-title">연구모집현황</div>
+            <div class="column">
+                <div class="input-title">연구종료일자</div>
+                <input class="datepicker" type="text" id="endDate">
+                <div class="selectbox">
+                    <select>
+                        <option value="">시간</option>
+                        <option value="">01</option>
+                        <option value="">02</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">의뢰자 종류</div>
                 <div class="input-select">
                     <div>
-                        <input type="radio" name="select-research-status" id="not-yet">
-                        <label for="not-yet">not yet</label>
+                        <input type="radio" name="select-client-type" id="sponser">
+                        <label for="sponser">sponser</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-research-status" id="recruiting">
-                        <label for="recruiting">recruiting</label>
+                        <input type="radio" name="select-client-type" id="principal-investigator">
+                        <label for="principal-investigator">principal investigator</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-research-status" id="enrolling-by-invitation">
-                        <label for="enrolling-by-invitation">enrolling by invitation</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-status" id="not-recruiting">
-                        <label for="not-recruiting">active, not recruiting</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-status" id="completed">
-                        <label for="completed">completed</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-status" id="suspended">
-                        <label for="suspended">suspended</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-status" id="terminated">
-                        <label for="terminated">terminated</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-research-status" id="withdrawn">
-                        <label for="withdrawn">withdrawn</label>
+                        <input type="radio" name="select-client-type" id="sponsor-investigator">
+                        <label for="sponsor-investigator">sponsor investigator</label>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-title">연구종료사유</div>
-                <input type="text">
-                <small>* Suspended, Terminated, withdrawn인 경우 작성</small>
-            </div>
-            <div class="row row-date">
-                <div class="column">
-                    <div class="input-title">연구시작일자</div>
-                    <input class="datepicker" type="text" id="startDate">
-                    <div class="selectbox">
-                        <select>
-                            <option value="">시간</option>
-                            <option value="">01</option>
-                            <option value="">02</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">연구종료일자</div>
-                    <input class="datepicker" type="text" id="endDate">
-                    <div class="selectbox">
-                        <select>
-                            <option value="">시간</option>
-                            <option value="">01</option>
-                            <option value="">02</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">의뢰자 종류</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-client-type" id="sponser">
-                            <label for="sponser">sponser</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-client-type" id="principal-investigator">
-                            <label for="principal-investigator">principal investigator</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-client-type" id="sponsor-investigator">
-                            <label for="sponsor-investigator">sponsor investigator</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">의뢰자명</div>
-                    <input type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">제품수출여부</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-export" id="export-yes">
-                            <label for="export-yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-export" id="export-no">
-                            <label for="export-no">no</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">식약처규제연구여부(drug)</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-drug" id="drug-yes">
-                            <label for="drug-yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-drug" id="drug-no">
-                            <label for="drug-no">no</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">식약처규제연구여부(device)</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-device" id="device-yes">
-                            <label for="device-yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-device" id="device-no">
-                            <label for="device-no">no</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">모니터링위원회여부</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-monitoring" id="monitoring-yes">
-                            <label for="monitoring-yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-monitoring" id="monitoring-no">
-                            <label for="monitoring-no">no</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-type-1">
-                <div class="column">
-                    <div class="input-title">임상시험 IND번호</div>
-                    <input type="text">
-                </div>
-                <div class="column">
-                    <div class="input-title">비허가제품여부</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-unlicensed" id="unlicensed-yes">
-                            <label for="unlicensed-yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-unlicensed" id="unlicensed-no">
-                            <label for="unlicensed-no">no</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">임상시험 등록여부공개 허가여부</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-disclosure" id="disclosure-yes">
-                            <label for="disclosure-yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-disclosure" id="disclosure-no">
-                            <label for="disclosure-no">no</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-type-1">
-                <div class="column">
-                    <div class="input-title">IRB승인번호</div>
-                    <input type="text">
-                </div>
-                <div class="column">
-                    <div class="input-title">IRB위원회이름</div>
-                    <input type="text">
-                </div>
-                <div class="column">
-                    <div class="input-title">IRB연락처</div>
-                    <input type="text">
-                </div>
-            </div>
-            <div class="row row-title">
-                <div class="input-title">연구요약</div>
+            <div class="column">
+                <div class="input-title">의뢰자명</div>
                 <input type="text">
             </div>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">연구대상 질환코드</div>
-                    <input type="text">
-                </div>
-                <div class="column">
-                    <div class="input-title">희귀질환여부</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-rare-disease" id="rare-disease-yes">
-                            <label for="rare-disease-yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-rare-disease" id="rare-disease-no">
-                            <label for="rare-disease-no">no</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">주요목적</div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">제품수출여부</div>
                 <div class="input-select">
                     <div>
-                        <input type="radio" name="select-purpose" id="treatment">
-                        <label for="treatment">treatment</label>
+                        <input type="radio" name="select-export" id="export-yes">
+                        <label for="export-yes">yes</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-purpose" id="prevention">
-                        <label for="prevention">prevention</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-purpose" id="diagnostic">
-                        <label for="diagnostic">diagnostic</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-purpose" id="supportive-care">
-                        <label for="supportive-care">supportive care</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-purpose" id="screeing">
-                        <label for="screeing">screeing</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-purpose" id="health-services-research">
-                        <label for="health-services-research">health services research</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-purpose" id="basic-science">
-                        <label for="basic-science">basic science</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-purpose" id="device-feasibility">
-                        <label for="device-feasibility">device feasibility</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-purpose" id="other">
-                        <label for="other">other</label>
+                        <input type="radio" name="select-export" id="export-no">
+                        <label for="export-no">no</label>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-title">연구단계</div>
+            <div class="column">
+                <div class="input-title">식약처규제연구여부(drug)</div>
                 <div class="input-select">
                     <div>
-                        <input type="radio" name="select-phase" id="none">
-                        <label for="none">N/A</label>
+                        <input type="radio" name="select-drug" id="drug-yes">
+                        <label for="drug-yes">yes</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-phase" id="phase-1">
-                        <label for="phase-1">phase 1</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-phase" id="phase-1-2">
-                        <label for="phase-1-2">phase 1/ phase 2</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-phase" id="phase-2">
-                        <label for="phase-2">phase 2</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-phase" id="phase-2-3">
-                        <label for="phase-2-3">phase 2/ phase 3</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-phase" id="phase-3">
-                        <label for="phase-3">phase 3</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-phase" id="phase-4">
-                        <label for="phase-4">phase 4</label>
+                        <input type="radio" name="select-drug" id="drug-no">
+                        <label for="drug-no">no</label>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">중재유형설계</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-arbitration" id="single-group">
-                            <label for="single-group">single group</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-arbitration" id="parallel">
-                            <label for="parallel">parallel</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-arbitration" id="crossover">
-                            <label for="crossover">crossover</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-arbitration" id="factorial">
-                            <label for="factorial">factorial</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-arbitration" id="sequential">
-                            <label for="sequential">sequential</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">목표 대상자수</div>
-                    <input type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">눈가림종류</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-blindfold" id="participant">
-                            <label for="participant">participant</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-blindfold" id="care-provider">
-                            <label for="care-provider">care provider</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-blindfold" id="investigator">
-                            <label for="investigator">investigator</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-blindfold" id="outcomes-assessor">
-                            <label for="outcomes-assessor">outcomes assessor</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-blindfold" id="no-masking">
-                            <label for="no-masking">no masking</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">관찰기간</div>
-                    <input type="text">
-                    <div class="selectbox">
-                        <select>
-                            <option value="년">년</option>
-                            <option value="월">월</option>
-                            <option value="일">일</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">할당방법</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-allocate" id="none-allocate">
-                            <label for="none-allocate">N/A</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-allocate" id="randomized">
-                            <label for="randomized">randomized</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-allocate" id="nonrandomized">
-                            <label for="nonrandomized">nonrandomized</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">연구관점</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-perspective" id="retrospective">
-                            <label for="retrospective">retrospective</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-perspective" id="prospective">
-                            <label for="prospective">prospective</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-perspective" id="cross-sectional">
-                            <label for="cross-sectional">cross-sectional</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-perspective" id="other-perspective">
-                            <label for="other-perspective">other</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="input-title">연구디자인</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-design" id="cohort">
-                            <label for="cohort">cohort</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-design" id="case-control">
-                            <label for="case-control">case-control</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-design" id="case-only">
-                            <label for="case-only">case-only</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-design" id="case-crossover">
-                            <label for="case-crossover">case-crossover</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-design" id="ecologic-or-community-studies">
-                            <label for="ecologic-or-community-studies">ecologic or community studies</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-design" id="family-based">
-                            <label for="family-based">family-based</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-design" id="other-design">
-                            <label for="other-design">other</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">생물자원 저장종류</div>
+            <div class="column">
+                <div class="input-title">식약처규제연구여부(device)</div>
                 <div class="input-select">
                     <div>
-                        <input type="radio" name="select-resources" id="non-retained">
-                        <label for="non-retained">non retained</label>
+                        <input type="radio" name="select-device" id="device-yes">
+                        <label for="device-yes">yes</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-resources" id="samples-with-dna">
-                        <label for="samples-with-dna">samples with DNA</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-resources" id="samples-without-dna">
-                        <label for="samples-without-dna">samples without DNA</label>
+                        <input type="radio" name="select-device" id="device-no">
+                        <label for="device-no">no</label>
                     </div>
                 </div>
             </div>
-            <div class="row row-type-1">
-                <div class="column">
-                    <div class="input-title">군 이름</div>
-                    <input type="text">
-                </div>
-                <div class="column">
-                    <div class="input-title">군 유형</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-group" id="experimental">
-                            <label for="experimental">experimental</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-group" id="active-comparator">
-                            <label for="active-comparator">active comparator</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-group" id="placebo-comparator">
-                            <label for="placebo-comparator">placebo comparator</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-group" id="sham-comparator">
-                            <label for="sham-comparator">sham comparator</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-group" id="no-intervention">
-                            <label for="no-intervention">no intervention</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-group" id="other-group">
-                            <label for="other-group">other</label>
-                        </div>
+            <div class="column">
+                <div class="input-title">모니터링위원회여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-monitoring" id="monitoring-yes">
+                        <label for="monitoring-yes">yes</label>
                     </div>
+                    <div>
+                        <input type="radio" name="select-monitoring" id="monitoring-no">
+                        <label for="monitoring-no">no</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-type-1">
+            <div class="column">
+                <div class="input-title">임상시험 IND번호</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">비허가제품여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-unlicensed" id="unlicensed-yes">
+                        <label for="unlicensed-yes">yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-unlicensed" id="unlicensed-no">
+                        <label for="unlicensed-no">no</label>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-title">임상시험 등록여부공개 허가여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-disclosure" id="disclosure-yes">
+                        <label for="disclosure-yes">yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-disclosure" id="disclosure-no">
+                        <label for="disclosure-no">no</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-type-1">
+            <div class="column">
+                <div class="input-title">IRB승인번호</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">IRB위원회이름</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">IRB연락처</div>
+                <input type="text">
+            </div>
+        </div>
+        <div class="row row-title">
+            <div class="input-title">연구요약</div>
+            <input type="text">
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">연구대상 질환코드</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">희귀질환여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-rare-disease" id="rare-disease-yes">
+                        <label for="rare-disease-yes">yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-rare-disease" id="rare-disease-no">
+                        <label for="rare-disease-no">no</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-title">주요목적</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-purpose" id="treatment">
+                    <label for="treatment">treatment</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="prevention">
+                    <label for="prevention">prevention</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="diagnostic">
+                    <label for="diagnostic">diagnostic</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="supportive-care">
+                    <label for="supportive-care">supportive care</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="screeing">
+                    <label for="screeing">screeing</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="health-services-research">
+                    <label for="health-services-research">health services research</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="basic-science">
+                    <label for="basic-science">basic science</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="device-feasibility">
+                    <label for="device-feasibility">device feasibility</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-purpose" id="other">
+                    <label for="other">other</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-title">연구단계</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-phase" id="none">
+                    <label for="none">N/A</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-phase" id="phase-1">
+                    <label for="phase-1">phase 1</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-phase" id="phase-1-2">
+                    <label for="phase-1-2">phase 1/ phase 2</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-phase" id="phase-2">
+                    <label for="phase-2">phase 2</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-phase" id="phase-2-3">
+                    <label for="phase-2-3">phase 2/ phase 3</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-phase" id="phase-3">
+                    <label for="phase-3">phase 3</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-phase" id="phase-4">
+                    <label for="phase-4">phase 4</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">중재유형설계</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-arbitration" id="single-group">
+                        <label for="single-group">single group</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-arbitration" id="parallel">
+                        <label for="parallel">parallel</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-arbitration" id="crossover">
+                        <label for="crossover">crossover</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-arbitration" id="factorial">
+                        <label for="factorial">factorial</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-arbitration" id="sequential">
+                        <label for="sequential">sequential</label>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-title">목표 대상자수</div>
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">눈가림종류</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-blindfold" id="participant">
+                        <label for="participant">participant</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-blindfold" id="care-provider">
+                        <label for="care-provider">care provider</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-blindfold" id="investigator">
+                        <label for="investigator">investigator</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-blindfold" id="outcomes-assessor">
+                        <label for="outcomes-assessor">outcomes assessor</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-blindfold" id="no-masking">
+                        <label for="no-masking">no masking</label>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-title">관찰기간</div>
+                <input type="text">
+                <div class="selectbox">
+                    <select>
+                        <option value="년">년</option>
+                        <option value="월">월</option>
+                        <option value="일">일</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">할당방법</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-allocate" id="none-allocate">
+                        <label for="none-allocate">N/A</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-allocate" id="randomized">
+                        <label for="randomized">randomized</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-allocate" id="nonrandomized">
+                        <label for="nonrandomized">nonrandomized</label>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-title">연구관점</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-perspective" id="retrospective">
+                        <label for="retrospective">retrospective</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-perspective" id="prospective">
+                        <label for="prospective">prospective</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-perspective" id="cross-sectional">
+                        <label for="cross-sectional">cross-sectional</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-perspective" id="other-perspective">
+                        <label for="other-perspective">other</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="input-title">연구디자인</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-design" id="cohort">
+                        <label for="cohort">cohort</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-design" id="case-control">
+                        <label for="case-control">case-control</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-design" id="case-only">
+                        <label for="case-only">case-only</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-design" id="case-crossover">
+                        <label for="case-crossover">case-crossover</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-design" id="ecologic-or-community-studies">
+                        <label for="ecologic-or-community-studies">ecologic or community studies</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-design" id="family-based">
+                        <label for="family-based">family-based</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-design" id="other-design">
+                        <label for="other-design">other</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-title">생물자원 저장종류</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-resources" id="non-retained">
+                    <label for="non-retained">non retained</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-resources" id="samples-with-dna">
+                    <label for="samples-with-dna">samples with DNA</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-resources" id="samples-without-dna">
+                    <label for="samples-without-dna">samples without DNA</label>
+                </div>
+            </div>
+        </div>
+        <div class="row row-type-1">
+            <div class="column">
+                <div class="input-title">군 이름</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">군 유형</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-group" id="experimental">
+                        <label for="experimental">experimental</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-group" id="active-comparator">
+                        <label for="active-comparator">active comparator</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-group" id="placebo-comparator">
+                        <label for="placebo-comparator">placebo comparator</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-group" id="sham-comparator">
+                        <label for="sham-comparator">sham comparator</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-group" id="no-intervention">
+                        <label for="no-intervention">no intervention</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-group" id="other-group">
+                        <label for="other-group">other</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-plus">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="input-title">중재 유형</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="drug">
+                    <label for="drug">drug</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="device">
+                    <label for="device">device</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="biological-vaccine">
+                    <label for="biological-vaccine">biological/vaccine</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="procedure-surgery">
+                    <label for="procedure-surgery">procedure/surgery</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="radiation">
+                    <label for="radiation">radiation</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="behavioral">
+                    <label for="behavioral">behavioral</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="genetic">
+                    <label for="genetic">genetic</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="dietary-supplement">
+                    <label for="dietary-supplement">dietary supplement</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="combination-product">
+                    <label for="combination-product">combination product</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="diagnostic-test">
+                    <label for="diagnostic-test">diagnostic test</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-arbitration-type" id="other-arbitration">
+                    <label for="other-arbitration">other</label>
+                </div>
+            </div>
+        </div>
+        <div class="row row-type-1">
+            <div class="column">
+                <div class="input-title">중재이름</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">중재설명</div>
+                <input type="text">
+            </div>
+        </div>
+        <div class="row row-type-1">
+            <div class="column">
+                <div class="input-title">결과변수</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">결과변수유형</div>
+                <div class="selectbox">
+                    <select>
+                        <option value="primary-outcome-measure">primary outcome measure</option>
+                        <option value="secondary-outcome-measure ">secondary outcome measure</option>
+                    </select>
                 </div>
                 <button class="btn-plus">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -685,177 +758,109 @@
                     </svg>
                 </button>
             </div>
+        </div>
+        <div class="row">
+            <div class="input-title">평가시기</div>
+            <input type="text">
+        </div>
 
-            <div class="row">
-                <div class="input-title">중재 유형</div>
+        <h3>참여요건</h3>
+        <div class="row row-standard">
+            <div class="column">
+                <div class="input-title">성별</div>
                 <div class="input-select">
                     <div>
-                        <input type="radio" name="select-arbitration-type" id="drug">
-                        <label for="drug">drug</label>
+                        <input type="radio" name="select-gender" id="male">
+                        <label for="male">남성</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-arbitration-type" id="device">
-                        <label for="device">device</label>
+                        <input type="radio" name="select-gender" id="female">
+                        <label for="female">여성</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-arbitration-type" id="biological-vaccine">
-                        <label for="biological-vaccine">biological/vaccine</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="procedure-surgery">
-                        <label for="procedure-surgery">procedure/surgery</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="radiation">
-                        <label for="radiation">radiation</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="behavioral">
-                        <label for="behavioral">behavioral</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="genetic">
-                        <label for="genetic">genetic</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="dietary-supplement">
-                        <label for="dietary-supplement">dietary supplement</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="combination-product">
-                        <label for="combination-product">combination product</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="diagnostic-test">
-                        <label for="diagnostic-test">diagnostic test</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-arbitration-type" id="other-arbitration">
-                        <label for="other-arbitration">other</label>
+                        <input type="radio" name="select-gender" id="irrelevant">
+                        <label for="irrelevant">무관</label>
                     </div>
                 </div>
             </div>
-            <div class="row row-type-1">
-                <div class="column">
-                    <div class="input-title">중재이름</div>
-                    <input type="text">
-                </div>
-                <div class="column">
-                    <div class="input-title">중재설명</div>
-                    <input type="text">
-                </div>
-            </div>
-            <div class="row row-type-1">
-                <div class="column">
-                    <div class="input-title">결과변수</div>
-                    <input type="text">
-                </div>
-                <div class="column">
-                    <div class="input-title">결과변수유형</div>
-                    <div class="selectbox">
-                        <select>
-                            <option value="primary-outcome-measure">primary outcome measure</option>
-                            <option value="secondary-outcome-measure ">secondary outcome measure</option>
-                        </select>
-                    </div>
-                    <button class="btn-plus">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">평가시기</div>
+            <div class="column">
+                <div class="input-title">연령기준하한</div>
                 <input type="text">
+                <div class="selectbox">
+                    <select>
+                        <option value="세">세</option>
+                        <option value="개월">개월</option>
+                        <option value="주">주</option>
+                        <option value="일">일</option>
+                        <option value="시간">시간</option>
+                        <option value="분">분</option>
+                    </select>
+                </div>
             </div>
+            <div class="column">
+                <div class="input-title">연령기준상한</div>
+                <input type="text">
+                <div class="selectbox">
+                    <select>
+                        <option value="세">세</option>
+                        <option value="개월">개월</option>
+                        <option value="주">주</option>
+                        <option value="일">일</option>
+                        <option value="시간">시간</option>
+                        <option value="분">분</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row row-standard">
+            <div class="column">
+                <div class="input-title">건강대상 참여여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-gender" id="yes">
+                        <label for="yes">yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-gender" id="no">
+                        <label for="no">no</label>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-title">샘플링 방법</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-sampling" id="probability-sample">
+                        <label for="probability-sample">probability sample</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-sampling" id="non-probability-sample">
+                        <label for="non-probability-sample">non-probability sample</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-title">
+            <div class="input-title">선정기준</div>
+            <input type="text">
+        </div>
+        <div class="row row-title">
+            <div class="input-title">제외기준</div>
+            <input type="text">
+        </div>
+    </section>
+</main>
+</div>
+<script>
+  $(function () {
+    $("#startDate, #endDate, #dischargeDate").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'yy-mm-dd'
+    });
+  });
+</script>
 
-            <h3>참여요건</h3>
-            <div class="row row-standard">
-                <div class="column">
-                    <div class="input-title">성별</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-gender" id="male">
-                            <label for="male">남성</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-gender" id="female">
-                            <label for="female">여성</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-gender" id="irrelevant">
-                            <label for="irrelevant">무관</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">연령기준하한</div>
-                    <input type="text">
-                    <div class="selectbox">
-                        <select>
-                            <option value="세">세</option>
-                            <option value="개월">개월</option>
-                            <option value="주">주</option>
-                            <option value="일">일</option>
-                            <option value="시간">시간</option>
-                            <option value="분">분</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">연령기준상한</div>
-                    <input type="text">
-                    <div class="selectbox">
-                        <select>
-                            <option value="세">세</option>
-                            <option value="개월">개월</option>
-                            <option value="주">주</option>
-                            <option value="일">일</option>
-                            <option value="시간">시간</option>
-                            <option value="분">분</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-standard">
-                <div class="column">
-                    <div class="input-title">건강대상 참여여부</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-gender" id="yes">
-                            <label for="yes">yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-gender" id="no">
-                            <label for="no">no</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="input-title">샘플링 방법</div>
-                    <div class="input-select">
-                        <div>
-                            <input type="radio" name="select-sampling" id="probability-sample">
-                            <label for="probability-sample">probability sample</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="select-sampling" id="non-probability-sample">
-                            <label for="non-probability-sample">non-probability sample</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-title">
-                <div class="input-title">선정기준</div>
-                <input type="text">
-            </div>
-            <div class="row row-title">
-                <div class="input-title">제외기준</div>
-                <input type="text">
-            </div>
-        </section>
-    </main>
 </div>
 </body>
 </html>
