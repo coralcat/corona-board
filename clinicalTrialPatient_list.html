@@ -6,6 +6,8 @@
     <title>확진환자 현황</title>
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <script src="assets/lib/jquery-3.5.1.min.js"></script>
+    <script src="assets/lib/jquery-ui.min.js"></script>
     <script src="assets/js/script.js"></script>
 </head>
 <body>
@@ -95,6 +97,14 @@
 <main class="clinical-trials-list">
     <header>
         <h3>임상시험 참여자 정보조회</h3>
+        <div class="buttons">
+            <button class="csv-upload">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                </svg>
+                <span>참여자 CSV 데이터 업로드</span>
+            </button>
+        </div>
     </header>
     <div class="filters">
         <ul>
@@ -109,19 +119,35 @@
                 </div>
             </li>
             <li>
-                <label for="select-age">나이</label>
-                <div class="selectbox">
-                    <select name="" id="select-age">
-                        <option value="01">0~10</option>
-                        <option value="02">11~20</option>
-                        <option value="03">21~30</option>
-                        <option value="04">31~40</option>
-                        <option value="05">41~50</option>
-                        <option value="06">51~60</option>
-                        <option value="07">61~70</option>
-                        <option value="08">71~80</option>
-                        <option value="09">81~</option>
-                    </select>
+                <label>나이</label>
+                <div class="input-select">
+                    <div class="selectbox">
+                        <select>
+                            <option value="01">0</option>
+                            <option value="02">11</option>
+                            <option value="03">21</option>
+                            <option value="04">31</option>
+                            <option value="05">41</option>
+                            <option value="06">51</option>
+                            <option value="07">61</option>
+                            <option value="08">71</option>
+                            <option value="09">81</option>
+                        </select>
+                    </div>
+                    <span class="tilde">~</span>
+                    <div class="selectbox">
+                        <select>
+                            <option value="01">10</option>
+                            <option value="02">20</option>
+                            <option value="03">30</option>
+                            <option value="04">40</option>
+                            <option value="05">50</option>
+                            <option value="06">60</option>
+                            <option value="07">70</option>
+                            <option value="08">80</option>
+                            <option value="09">81</option>
+                        </select>
+                    </div>
                 </div>
             </li>
             <li>
@@ -134,26 +160,16 @@
                 </div>
             </li>
             <li>
-                <label for="select-month">확진 월</label>
-                <div class="selectbox">
-                    <select name="" id="select-month">
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                    </select>
-                </div>
-            </li>
-            <li>
                 <label for="select-hospital">병원</label>
                 <div class="selectbox">
                     <select name="" id="select-hospital">
-                        <option value="suwon">수원병원</option>
-                        <option value="ansung">안성병원</option>
-                        <option value="euijungbu">의정부병원</option>
-                        <option value="pocheon">포천병원</option>
-                        <option value="paju">파주병원</option>
-                        <option value="icheon">이천병원</option>
-                        <option value="ajou">아주대병원</option>
+                        <option value="suwon">수원</option>
+                        <option value="ansung">안성</option>
+                        <option value="euijungbu">의정부</option>
+                        <option value="pocheon">포원</option>
+                        <option value="paju">파주</option>
+                        <option value="icheon">이천</option>
+                        <option value="ajou">아주대</option>
                     </select>
                 </div>
             </li>
@@ -170,8 +186,13 @@
                 </div>
             </li>
             <li>
-                <label for="select-severity">중증도 측정일</label>
-                <input class="datepicker" type="text" id="severityDate">
+                <label for="select-detail">상세정보상태</label>
+                <div class="selectbox">
+                    <select name="" id="select-detail">
+                        <option value="yes">예</option>
+                        <option value="no">아니오</option>
+                    </select>
+                </div>
             </li>
             <li>
                 <label for="select-research">참여연구</label>
@@ -186,12 +207,19 @@
                 </div>
             </li>
             <li>
-                <label for="select-detail">상세정보입력여부</label>
-                <div class="selectbox">
-                    <select name="" id="select-detail">
-                        <option value="yes">예</option>
-                        <option value="no">아니오</option>
-                    </select>
+                <label>확진일자</label>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="confirmedStartDate">
+                    <span class="tilde">~</span>
+                    <input class="datepicker" type="text" id="confirmedEndDate">
+                </div>
+            </li>
+            <li>
+                <label for="select-severity">중증도 측정일자</label>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="severityStartDate">
+                    <span class="tilde">~</span>
+                    <input class="datepicker" type="text" id="severityEndDate">
                 </div>
             </li>
         </ul>
@@ -202,17 +230,10 @@
         </button>
     </div>
     <section>
-        <div class="buttons">
-            <button class="csv-upload">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-                </svg>
-                <span>참여자 CSV 데이터 업로드</span>
-            </button>
-        </div>
         <div class="table">
             <ul class="row th">
                 <li>확진번호</li>
+                <li>환자ID</li>
                 <li>성별</li>
                 <li>나이</li>
                 <li>확진일자</li>
@@ -220,11 +241,11 @@
                 <li>중증도</li>
                 <li>중증도 측정일</li>
                 <li>참여연구</li>
-                <li>상세정보 입력여부</li>
-                <li>상세정보 수정/추가</li>
+                <li>상세정보상태</li>
             </ul>
             <ul class="row">
-                <li>id001</li>
+                <li>003</li>
+                <li>AA0013</li>
                 <li>여성</li>
                 <li>20</li>
                 <li>2020-11-01</li>
@@ -232,26 +253,17 @@
                 <li>1</li>
                 <li>2020-11-05</li>
                 <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
                 <li class="col-buttons">
-                    <button class="btn-edit">
+                    <button class="btn-edit" onclick="location.href='clinicalTrialPatient_edit.html'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                         </svg>
                     </button>
                 </li>
             </ul>
             <ul class="row">
-                <li>id001</li>
+                <li>002</li>
+                <li>AA0012</li>
                 <li>여성</li>
                 <li>20</li>
                 <li>2020-11-01</li>
@@ -259,26 +271,17 @@
                 <li>1</li>
                 <li>2020-11-05</li>
                 <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
                 <li class="col-buttons">
-                    <button class="btn-edit">
+                    <button class="btn-edit" onclick="location.href='clinicalTrialPatient_edit.html'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                         </svg>
                     </button>
                 </li>
             </ul>
             <ul class="row">
-                <li>id001</li>
+                <li>001</li>
+                <li>AA0011</li>
                 <li>여성</li>
                 <li>20</li>
                 <li>2020-11-01</li>
@@ -286,395 +289,7 @@
                 <li>1</li>
                 <li>2020-11-05</li>
                 <li>MF0216</li>
-                <li class="col-check">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                    </svg>
-                </li>
                 <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                    <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-            <ul class="row">
-                <li>id001</li>
-                <li>여성</li>
-                <li>20</li>
-                <li>2020-11-01</li>
-                <li>용인</li>
-                <li>1</li>
-                <li>2020-11-05</li>
-                <li>MF0216</li>
-                <li class="col-check active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
-                </li>
-                <li class="col-buttons">
-                    <button class="btn-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
                     <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
@@ -687,9 +302,6 @@
     <div class="modal modal-csv-upload">
         <h3>임상시험 참여자 업로드</h3>
         <div class="row">
-            <div class="input-title">
-                파일 선택
-            </div>
             <button class="btn-file">
                 <span>파일 찾기</span>
                 <input type="file" accept=".csv" name="FileAttachment" id="FileAttachment" class="upload"/>
@@ -700,6 +312,15 @@
     </div>
     <div class="overlay"></div>
 </main>
+<script>
+  $(function () {
+    $("#confirmedStartDate, #confirmedEndDate, #severityStartDate, #severityEndDate").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'yy-mm-dd'
+    });
+  });
+</script>
 
 </div>
 </body>

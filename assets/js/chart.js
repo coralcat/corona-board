@@ -16,9 +16,14 @@ function drawAgeChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '나이분포',
+    titleTextStyle: {
+      fontSize: 14,
+      fontName: 'Nanumsquare',
+      color: '#333'
+    },
     pieHole: 0.4,
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -36,9 +41,14 @@ function drawGenderChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '성별분포',
+    titleTextStyle: {
+      fontSize: 14,
+      fontName: 'Nanumsquare',
+      color: '#333'
+    },
     pieHole: 0.4,
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -46,10 +56,6 @@ function drawGenderChart() {
       easing: 'out',
       startup: true
     }
-    /*chartArea: {width: '90%',}
-    legend: 'none',
-    pieSliceText: 'label',*/
-
   };
   var chart = new google.visualization.PieChart(document.getElementById('chart-gender'));
   chart.draw(data, options);
@@ -60,8 +66,13 @@ function drawSeverityChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '중증도 비율',
-    legend: {
-      position: 'bottom'
+    titleTextStyle: {
+      fontSize: 14,
+      fontName: 'Nanumsquare',
+      color: '#333'
+    },
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -79,8 +90,13 @@ function drawTreatmentChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '치료 현황',
-    legend: {
-      position: 'bottom'
+    titleTextStyle: {
+      fontSize: 14,
+      fontName: 'Nanumsquare',
+      color: '#333'
+    },
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -98,8 +114,13 @@ function drawDischargeChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '퇴원 현황',
-    legend: {
-      position: 'bottom'
+    titleTextStyle: {
+      fontSize: 14,
+      fontName: 'Nanumsquare',
+      color: '#333'
+    },
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -117,6 +138,11 @@ function drawDaysChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '일별 확진/퇴원 환자 통계',
+    titleTextStyle: {
+      fontSize: 14,
+      fontName: 'Nanumsquare',
+      color: '#333'
+    },
     hAxis: {
       titleTextStyle: {
         color: '#333'
@@ -146,6 +172,11 @@ function drawCurrentChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '현재 확진 환자수',
+    titleTextStyle: {
+      fontSize: 14,
+      fontName: 'Nanumsquare',
+      color: '#333'
+    },
     hAxis: {
       titleTextStyle: {
         color: '#333'

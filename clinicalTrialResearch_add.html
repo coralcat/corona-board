@@ -96,7 +96,7 @@
 </aside>
 <main class="clinical-trial-research-add">
     <header>
-        <h3>임상시험 정보 신규등록</h3>
+        <h3>임상시험 생성</h3>
         <button>등록</button>
     </header>
     <section>
@@ -118,7 +118,7 @@
                 <input type="text">
             </div>
         </div>
-        <div class="row row-title">
+        <div class="row row-type-1">
             <div class="input-title">연구제목</div>
             <input type="text">
         </div>
@@ -149,8 +149,7 @@
             <div class="selectbox">
                 <select>
                     <option value="CRIS">CRIS</option>
-                    <option value="ClinicalTrials">ClinicalTrials</option>
-                    <option value="gov">gov</option>
+                    <option value="ClinicalTrials">ClinicalTrials..gov</option>
                     <option value="ANZCTR">ANZCTR</option>
                     <option value="UMIN">UMIN</option>
                     <option value="ISRCTN">ISRCTN</option>
@@ -196,7 +195,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row row-type-1">
             <div class="input-title">연구종료사유</div>
             <input type="text">
             <small>* Suspended, Terminated, withdrawn인 경우 작성</small>
@@ -205,24 +204,12 @@
             <div class="column">
                 <div class="input-title">연구시작일자</div>
                 <input class="datepicker" type="text" id="startDate">
-                <div class="selectbox">
-                    <select>
-                        <option value="">시간</option>
-                        <option value="">01</option>
-                        <option value="">02</option>
-                    </select>
-                </div>
+                <input type="time" value="00:00:00">
             </div>
             <div class="column">
                 <div class="input-title">연구종료일자</div>
                 <input class="datepicker" type="text" id="endDate">
-                <div class="selectbox">
-                    <select>
-                        <option value="">시간</option>
-                        <option value="">01</option>
-                        <option value="">02</option>
-                    </select>
-                </div>
+                <input type="time" value="00:00:00">
             </div>
         </div>
         <div class="row">
@@ -248,7 +235,7 @@
                 <input type="text">
             </div>
         </div>
-        <div class="row">
+        <div class="row row-type-4">
             <div class="column">
                 <div class="input-title">제품수출여부</div>
                 <div class="input-select">
@@ -302,7 +289,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-type-1">
+        <div class="row row-type-3">
             <div class="column">
                 <div class="input-title">임상시험 IND번호</div>
                 <input type="text">
@@ -334,7 +321,36 @@
                 </div>
             </div>
         </div>
-        <div class="row row-type-1">
+        <div class="row">
+            <div class="input-title">IRB진행현황코드</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-irbcode" id="irb-not-yet">
+                    <label for="irb-not-yet">request not yet submitted</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-irbcode" id="irb-pending">
+                    <label for="irb-pending">submitted/pending</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-irbcode" id="irb-approved">
+                    <label for="irb-approved">submitted/approved</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-irbcode" id="irb-exempt">
+                    <label for="irb-exempt">exempt</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-irbcode" id="irb-denied">
+                    <label for="irb-denied">submitted/denied</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-irbcode" id="irb-not-required">
+                    <label for="irb-not-required">submission not required</label>
+                </div>
+            </div>
+        </div>
+        <div class="row row-type-3">
             <div class="column">
                 <div class="input-title required">IRB승인번호</div>
                 <input type="text">
@@ -348,11 +364,11 @@
                 <input type="text">
             </div>
         </div>
-        <div class="row row-title">
+        <div class="row row-type-1">
             <div class="input-title">연구요약</div>
             <input type="text">
         </div>
-        <div class="row">
+        <div class="row row-type-2">
             <div class="column">
                 <div class="input-title">연구대상 질환코드</div>
                 <input type="text">
@@ -508,7 +524,8 @@
                 <div class="selectbox">
                     <select>
                         <option value="년">년</option>
-                        <option value="월">월</option>
+                        <option value="개월">개월</option>
+                        <option value="주">주</option>
                         <option value="일">일</option>
                     </select>
                 </div>
@@ -606,7 +623,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-type-1">
+        <div class="row row-type-2">
             <div class="column">
                 <div class="input-title">군 이름</div>
                 <input type="text">
@@ -696,7 +713,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-type-1">
+        <div class="row row-type-2">
             <div class="column">
                 <div class="input-title">중재이름</div>
                 <input type="text">
@@ -706,7 +723,7 @@
                 <input type="text">
             </div>
         </div>
-        <div class="row row-type-1">
+        <div class="row row-type-2">
             <div class="column">
                 <div class="input-title">결과변수</div>
                 <input type="text">
@@ -807,11 +824,11 @@
                 </div>
             </div>
         </div>
-        <div class="row row-title">
+        <div class="row row-type-1">
             <div class="input-title">선정기준</div>
             <input type="text">
         </div>
-        <div class="row row-title">
+        <div class="row row-type-1">
             <div class="input-title">제외기준</div>
             <input type="text">
         </div>
