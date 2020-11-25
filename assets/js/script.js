@@ -34,22 +34,21 @@ document.addEventListener('DOMContentLoaded', function () {
     init(0);
   }); // 환자조회: 내역조회
 
-  var iconMore = document.querySelector('.ico-more');
+  var moreButton = document.querySelectorAll('.btn-more');
+  var rows = document.querySelectorAll('.rows');
 
-  function activeSubRow(e) {
-    var elems = document.querySelectorAll(".active-sub-row");
-    Array.from(elems).forEach(function (el) {
-      el.classList.remove('active-sub-row');
+  var initRow = function initRow(n) {
+    rows.forEach(function (row) {
+      row.classList.remove('active');
     });
-    var row = e.target.parentNode;
-    console.log(row);
-    row.classList.add("active-sub-row");
-  }
+    rows[n].classList.add('active');
+  };
 
-  if (iconMore) {
-    iconMore.addEventListener('click', activeSubRow);
-  } //환자조회: 체크박스
-
+  moreButton.forEach(function (row, index) {
+    row.addEventListener('click', function () {
+      initRow(index);
+    });
+  }); //환자조회: 체크박스
 
   function check() {
     var checked = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
@@ -73,28 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (btnCheckAll) {
     btnCheckAll.onclick = checkAll;
-  } // 임상시험 대상환자 조회: 환자상세정보 열기
-
-
-  var clinicalTrialPatientList = document.querySelector('.clinical-trials');
-  var patientDetail = document.querySelector('.clinical-trials-detail'); // 임상시험 대상환자 조회: 환자상세정보
-
-  var patientDetailMenu = document.querySelector('.clinical-trials-detail-menu');
-
-  function activeClass2(e) {
-    var menus = document.querySelectorAll('.active-patient-menu');
-    Array.from(menus).forEach(function (menu) {
-      menu.classList.remove('active-patient-menu');
-    });
-    e.target.classList.add('active-patient-menu');
-  }
-
-  if (clinicalTrialPatientList) {
-    clinicalTrialPatientList.addEventListener('click', function () {
-      patientDetail.classList.add('active');
-      window.location.hash = 'visited';
-    });
-    patientDetailMenu.addEventListener('click', activeClass2);
   } // 임상시험대상환자 상세정보 추가
 
 
