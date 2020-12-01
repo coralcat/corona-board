@@ -105,9 +105,8 @@
             <input type="text">
         </div>
         <div class="row">
-            <div class="input-title">나이</div>
-            <input type="text">
-            <small>* 확진 당시 나이</small>
+            <div class="input-title">생년월일</div>
+            <input class="datepicker" id="birthDate" type="text" placeholder="YYYY-mm-dd">
         </div>
         <div class="row">
             <div class="input-title">
@@ -159,13 +158,13 @@
         </div>
         <div class="row">
             <div class="input-title">확진일자</div>
-            <input class="datepicker" type="text" id="confirmationDate">
-            <input type="time" value="00:00:00">
+            <input class="datepicker" type="text" id="confirmationDate" placeholder="YYYY-mm-dd">
+            <input type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">퇴원(사망)일자</div>
-            <input class="datepicker" type="text" id="dischargeDate">
-            <input type="time" value="00:00:00">
+            <input class="datepicker" type="text" id="dischargeDate" placeholder="YYYY-mm-dd">
+            <input type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">
@@ -196,8 +195,8 @@
         </div>
         <div class="row">
             <div class="input-title">중증도 측정일</div>
-            <input class="datepicker" type="text" id="severityDate">
-            <input type="time" value="00:00:00">
+            <input class="datepicker" type="text" id="severityDate" placeholder="YYYY-mm-dd">
+            <input type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">상태</div>
@@ -285,7 +284,7 @@
 </main>
 <script>
   $(function () {
-    $("#confirmationDate, #dischargeDate, #severityDate").datepicker({
+    $("#birthDate, #confirmationDate, #dischargeDate, #severityDate").datepicker({
       changeMonth: true,
       changeYear: true,
       dateFormat: 'yy-mm-dd'

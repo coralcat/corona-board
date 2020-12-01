@@ -108,9 +108,8 @@
             <input type="text" value="AA0011">
         </div>
         <div class="row">
-            <div class="input-title">나이</div>
-            <input type="text" value="20">
-            <small>* 확진 당시 나이</small>
+            <div class="input-title">생년월일</div>
+            <input class="datepicker" id="birthDate" type="text" placeholder="YYYY-mm-dd">
         </div>
         <div class="row">
             <div class="input-title">성별</div>
@@ -160,13 +159,13 @@
         </div>
         <div class="row">
             <div class="input-title">확진일자</div>
-            <input class="datepicker" type="text" id="confirmationDate" value="2020-10-10">
-            <input type="time" value="00:00:00">
+            <input class="datepicker" type="text" id="confirmationDate" value="2020-10-10" placeholder="YYYY-mm-dd">
+            <input type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">퇴원(사망)일자</div>
-            <input class="datepicker" type="text" id="dischargeDate" value="2020-11-10">
-            <input type="time" value="00:00:00">
+            <input class="datepicker" type="text" id="dischargeDate" value="2020-11-10" placeholder="YYYY-mm-dd">
+            <input type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">중증도</div>
@@ -195,8 +194,8 @@
         </div>
         <div class="row">
             <div class="input-title">중증도 측정일</div>
-            <input class="datepicker" type="text" id="severityDate" value="2020-10-15">
-            <input type="time" value="00:00:00">
+            <input class="datepicker" type="text" id="severityDate" value="2020-10-15" placeholder="YYYY-mm-dd">
+            <input type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">상태</div>
@@ -284,7 +283,7 @@
 </main>
 <script>
   $(function () {
-    $("#confirmationDate, #dischargeDate, #severityDate").datepicker({
+    $("#birthDate, #confirmationDate, #dischargeDate, #severityDate").datepicker({
       changeMonth: true,
       changeYear: true,
       dateFormat: 'yy-mm-dd'
