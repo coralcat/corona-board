@@ -97,86 +97,20 @@
 </aside>
 <main class="user-edit admin">
     <header>
-        <h3>사용자 정보</h3>
+        <h3>기저질환명 정보</h3>
         <div class="buttons">
             <button class="btn-cancel" onclick="history.back()">취소</button>
+            <button class="btn-cancel">삭제</button>
             <button>수정</button>
         </div>
     </header>
     <section>
         <div class="row">
-            <div class="input-title">이름</div>
-            <input type="text" value="홍길동">
-        </div>
-        <div class="row">
-            <div class="input-title">ID</div>
-            <input type="text" value="AA0000" readonly>
-        </div>
-        <div class="row">
-            <div class="input-title">password</div>
-            <input type="password" value="1234567890">
-        </div>
-        <div class="row">
-            <div class="input-title">병원</div>
-            <div class="input-select">
-                <div>
-                    <input type="radio" name="select-hospital" id="suwon">
-                    <label for="suwon">수원병원</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-hospital" id="ansung" checked>
-                    <label for="ansung">안성병원</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-hospital" id="euijungbu">
-                    <label for="euijungbu">의정부병원</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-hospital" id="pocheon">
-                    <label for="pocheon">포천병원</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-hospital" id="paju">
-                    <label for="paju">파주병원</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-hospital" id="icheon">
-                    <label for="icheon">이천병원</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-hospital" id="ajou">
-                    <label for="ajou">아주대병원</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-title">권한</div>
-            <div class="input-select">
-                <div>
-                    <input type="radio" name="select-authority" id="read">
-                    <label for="read">읽기만 가능</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-authority" id="edit" checked>
-                    <label for="edit">소속병원만 읽기/수정 가능</label>
-                </div>
-                <div>
-                    <input type="radio" name="select-authority" id="edit-all">
-                    <label for="edit-all">모든 읽기/수정 가능</label>
-                </div>
-            </div>
+            <div class="input-title">기저질환명</div>
+            <input type="text" value="당뇨">
         </div>
     </section>
 </main>
-<script>
-    $(function () {
-        $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            dateFormat: 'yy-mm-dd'
-        });
-    });
-</script>
 
 </div>
 </body>
