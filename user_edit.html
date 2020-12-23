@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="">
     <title>확진환자 현황</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <script src="/assets/lib/jquery-3.5.1.min.js"></script>
-    <script src="/assets/lib/jquery-ui.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="assets/lib/jquery-3.5.1.min.js"></script>
+    <script src="assets/lib/jquery-ui.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 <body>
 <div class="container">
@@ -25,7 +25,7 @@
         <small>확진환자 정보관리</small>
         <ul>
             <li>
-                <a class="" href="/index.html">
+                <a class="" href="index.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                     </svg>
@@ -36,7 +36,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="/patient_list.html">
+                <a class="" href="patient_list.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                     </svg>
@@ -50,7 +50,7 @@
         <small>임상시험 참여자 정보관리</small>
         <ul>
             <li>
-                <a class="" href="/clinicalTrialPatient_dashboard.html">
+                <a class="" href="clinicalTrialPatient_dashboard.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                     </svg>
@@ -61,7 +61,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="/clinicalTrialPatient_list.html">
+                <a class="" href="clinicalTrialPatient_list.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                     </svg>
@@ -73,7 +73,7 @@
             </li>
         </ul>
     </nav>
-    <button class="btn-admin active" onclick="location.href='admin/user_list.html'">
+    <button class="btn-admin active" onclick="location.href='user_list.html'">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
             <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
         </svg>
@@ -83,20 +83,86 @@
 </aside>
 <main class="user-edit admin">
     <header>
-        <h3>기저질환명 정보</h3>
+        <h3>사용자 정보</h3>
         <div class="buttons">
             <button class="btn-cancel" onclick="history.back()">취소</button>
-            <button class="btn-cancel">삭제</button>
             <button>수정</button>
         </div>
     </header>
     <section>
         <div class="row">
-            <div class="input-title">기저질환명</div>
-            <input type="text" value="당뇨">
+            <div class="input-title">이름</div>
+            <input type="text" value="홍길동">
+        </div>
+        <div class="row">
+            <div class="input-title">ID</div>
+            <input type="text" value="AA0000" readonly>
+        </div>
+        <div class="row">
+            <div class="input-title">password</div>
+            <input type="password" value="1234567890">
+        </div>
+        <div class="row">
+            <div class="input-title">병원</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-hospital" id="suwon">
+                    <label for="suwon">수원병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="ansung" checked>
+                    <label for="ansung">안성병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="euijungbu">
+                    <label for="euijungbu">의정부병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="pocheon">
+                    <label for="pocheon">포천병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="paju">
+                    <label for="paju">파주병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="icheon">
+                    <label for="icheon">이천병원</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-hospital" id="ajou">
+                    <label for="ajou">아주대병원</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-title">권한</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-authority" id="read">
+                    <label for="read">읽기만 가능</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-authority" id="edit" checked>
+                    <label for="edit">소속병원만 읽기/수정 가능</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-authority" id="edit-all">
+                    <label for="edit-all">모든 읽기/수정 가능</label>
+                </div>
+            </div>
         </div>
     </section>
 </main>
+<script>
+    $(function () {
+        $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+</script>
 
 </div>
 </body>

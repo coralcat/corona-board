@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="">
     <title>확진환자 현황</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <script src="/assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 <body>
 <div class="container">
@@ -14,7 +14,8 @@
 <aside>
     <header>
         <div class="logo"></div>
-        <button class="btn-login" onclick="location.href='login.html'">login</button>
+        <div class="id">id: AA0000</div>
+        <button class="btn-login" onclick="location.href='login.html'">logout</button>
     </header>
     
     
@@ -22,7 +23,7 @@
         <small>확진환자 정보관리</small>
         <ul>
             <li>
-                <a class="" href="/index.html">
+                <a class="" href="index.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                     </svg>
@@ -33,7 +34,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="/patient_list.html">
+                <a class="" href="patient_list.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                     </svg>
@@ -47,7 +48,7 @@
         <small>임상시험 참여자 정보관리</small>
         <ul>
             <li>
-                <a class="" href="/clinicalTrialPatient_dashboard.html">
+                <a class="" href="clinicalTrialPatient_dashboard.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                     </svg>
@@ -58,7 +59,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="/clinicalTrialPatient_list.html">
+                <a class="" href="clinicalTrialPatient_list.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                     </svg>
@@ -70,7 +71,7 @@
             </li>
         </ul>
     </nav>
-    <button class="btn-admin active" onclick="location.href='admin/user_list.html'">
+    <button class="btn-admin active" onclick="location.href='user_list.html'">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
             <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
         </svg>
@@ -78,41 +79,45 @@
     </button>
 
 </aside>
-<main class="clinical-trial-research-list admin">
+<main class="patient_list admin">
     <header>
-        <h3>임상시험 조회</h3>
+        <h3>병원명 관리</h3>
         <div class="buttons">
             <button onclick="location.href='user_list.html'">사용자 관리</button>
-            <button onclick="location.href='hospital_list.html'">병원 관리</button>
+            <button onclick="location.href='clinicalTrialResearch_list.html'">임상시험 관리</button>
             <button onclick="location.href='disease_list.html'">기저질환명 관리</button>
-            <button class="btn-submit" onclick="location.href='clinicalTrialResearch_add.html'">생성</button>
+            <button class="btn-submit" onclick="location.href='hospital_add.html'">생성</button>
         </div>
     </header>
     <section>
         <div class="table">
             <ul class="row th">
-                <li>연구ID</li>
-                <li>연구제목(요약)</li>
-                <li>연구유형</li>
-                <li>타시스템등록번호</li>
-                <li>연구모집현황</li>
-                <li>IRB승인번호</li>
                 <li></li>
+                <li>병원</li>
             </ul>
-            <ul class="row">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li>
-                    <button class="btn-edit" onclick="location.href='clinicalTrialResearch_edit.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                    </button>
-                </li>
+            <ul class="row" onclick="location.href='hospital_edit.html'">
+                <li>6</li>
+                <li>수원</li>
+            </ul>
+            <ul class="row" onclick="location.href='hospital_edit.html'">
+                <li>5</li>
+                <li>안성</li>
+            </ul>
+            <ul class="row" onclick="location.href='hospital_edit.html'">
+                <li>4</li>
+                <li>의정부</li>
+            </ul>
+            <ul class="row" onclick="location.href='hospital_edit.html'">
+                <li>3</li>
+                <li>포천</li>
+            </ul>
+            <ul class="row" onclick="location.href='hospital_edit.html'">
+                <li>2</li>
+                <li>이천</li>
+            </ul>
+            <ul class="row" onclick="location.href='hospital_edit.html'">
+                <li>1</li>
+                <li>아주대</li>
             </ul>
         </div>
     </section>
