@@ -82,7 +82,7 @@
 </aside>
 <main class="patient-edit">
     <header>
-        <h3>확진환자 수정</h3>
+        <h3>확진환자 기저질환 입력</h3>
         <div class="buttons">
             <button class="btn-cancel" onclick="history.back()">취소</button>
             <button>수정</button>
@@ -91,21 +91,21 @@
     <section>
         <div class="row">
             <div class="input-title">확진번호</div>
-            <input type="text" value="AA0011">
+            <input disabled type="text" value="AA0011">
         </div>
         <div class="row">
             <div class="input-title">생년월일</div>
-            <input class="datepicker" id="birthDate" type="text" placeholder="YYYY-mm-dd">
+            <input disabled class="datepicker" id="birthDate" type="text" placeholder="YYYY-mm-dd">
         </div>
         <div class="row">
             <div class="input-title">성별</div>
             <div class="input-select">
                 <div>
-                    <input type="radio" name="select-gender" id="male">
+                    <input disabled type="radio" name="select-gender" id="male">
                     <label for="male">남성</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-gender" id="female" checked>
+                    <input disabled type="radio" name="select-gender" id="female" checked>
                     <label for="female">여성</label>
                 </div>
             </div>
@@ -114,109 +114,109 @@
             <div class="input-title">병원</div>
             <div class="input-select">
                 <div>
-                    <input type="radio" name="select-hospital" id="suwon">
+                    <input disabled type="radio" name="select-hospital" id="suwon">
                     <label for="suwon">수원병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="ansung">
+                    <input disabled type="radio" name="select-hospital" id="ansung">
                     <label for="ansung">안성병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="euijungbu">
+                    <input disabled type="radio" name="select-hospital" id="euijungbu">
                     <label for="euijungbu">의정부병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="pocheon">
+                    <input disabled type="radio" name="select-hospital" id="pocheon">
                     <label for="pocheon">포천병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="paju">
+                    <input disabled type="radio" name="select-hospital" id="paju">
                     <label for="paju">파주병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="icheon">
+                    <input disabled type="radio" name="select-hospital" id="icheon">
                     <label for="icheon">이천병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="ajou" checked>
+                    <input disabled type="radio" name="select-hospital" id="ajou" checked>
                     <label for="ajou">아주대병원</label>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="input-title">확진일자</div>
-            <input class="datepicker" type="text" id="confirmationDate" value="2020-10-10" placeholder="YYYY-mm-dd">
-            <input type="time" value="00:00:00" step="1">
+            <div class="input-title">최초내원일</div>
+            <input disabled class="datepicker" type="text" id="confirmationDate" value="2020-10-10" placeholder="YYYY-mm-dd">
+            <input disabled type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">입원일자</div>
-            <input class="datepicker" type="text" id="admissionDate" value="2020-10-10" placeholder="YYYY-mm-dd">
-            <input type="time" value="00:00:00" step="1">
+            <input disabled class="datepicker" type="text" id="admissionDate" value="2020-10-10" placeholder="YYYY-mm-dd">
+            <input disabled type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">퇴원(사망)일자</div>
-            <input class="datepicker" type="text" id="dischargeDate" value="2020-11-10" placeholder="YYYY-mm-dd">
-            <input type="time" value="00:00:00" step="1">
+            <input disabled class="datepicker" type="text" id="dischargeDate" value="2020-11-10" placeholder="YYYY-mm-dd">
+            <input disabled type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">중증도</div>
             <div class="input-select">
                 <div>
-                    <input type="radio" name="select-severity" id="sev_01">
+                    <input disabled type="radio" name="select-severity" id="sev_01">
                     <label for="sev_01">1</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-severity" id="sev_02" checked>
+                    <input disabled type="radio" name="select-severity" id="sev_02" checked>
                     <label for="sev_02">2</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-severity" id="sev_03">
+                    <input disabled type="radio" name="select-severity" id="sev_03">
                     <label for="sev_03">3</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-severity" id="sev_04">
+                    <input disabled type="radio" name="select-severity" id="sev_04">
                     <label for="sev_04">4</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-severity" id="sev_05">
+                    <input disabled type="radio" name="select-severity" id="sev_05">
                     <label for="sev_05">5</label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="input-title">중증도 측정일</div>
-            <input class="datepicker" type="text" id="severityDate" value="2020-10-15" placeholder="YYYY-mm-dd">
-            <input type="time" value="00:00:00" step="1">
+            <input disabled class="datepicker" type="text" id="severityDate" value="2020-10-15" placeholder="YYYY-mm-dd">
+            <input disabled type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
             <div class="input-title">상태</div>
             <div class="input-select">
                 <div>
-                    <input type="radio" name="select-status" id="status_01">
+                    <input disabled type="radio" name="select-status" id="status_01">
                     <label for="status_01">입원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-status" id="status_02">
+                    <input disabled type="radio" name="select-status" id="status_02">
                     <label for="status_02">통원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-status" id="status_03" checked>
+                    <input disabled type="radio" name="select-status" id="status_03" checked>
                     <label for="status_03">퇴원(자택)</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-status" id="status_04">
+                    <input disabled type="radio" name="select-status" id="status_04">
                     <label for="status_04">퇴원(전원)</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-status" id="status_05">
+                    <input disabled type="radio" name="select-status" id="status_05">
                     <label for="status_05">퇴원(요양)</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-status" id="status_06">
+                    <input disabled type="radio" name="select-status" id="status_06">
                     <label for="status_06">퇴원(생치소)</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-status" id="status_07">
+                    <input disabled type="radio" name="select-status" id="status_07">
                     <label for="status_07">사망</label>
                 </div>
             </div>

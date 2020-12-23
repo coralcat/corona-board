@@ -95,7 +95,7 @@
     <div class="filters">
         <ul>
             <li>
-                <label for="select-patient-id">확진번호</label>
+                <label for="select-patient-id">환자ID</label>
                 <div class="selectbox">
                     <select name="" id="select-patient-id">
                         <option value="">001</option>
@@ -184,6 +184,14 @@
                     <input class="datepicker" type="text" id="severityEndDate">
                 </div>
             </li>
+            <li>
+                <label for="select-severity">업데이트날짜</label>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="updatedStartDate">
+                    <span class="tilde">~</span>
+                    <input class="datepicker" type="text" id="updatedEndDate">
+                </div>
+            </li>
         </ul>
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -194,7 +202,6 @@
     <section>
         <div class="table">
             <ul class="row th">
-                <li>확진번호</li>
                 <li>환자ID</li>
                 <li>성별</li>
                 <li>나이</li>
@@ -203,10 +210,10 @@
                 <li>중증도</li>
                 <li>중증도 측정일</li>
                 <li>참여연구</li>
+                <li>업데이트날짜</li>
                 <li>상세정보상태</li>
             </ul>
             <ul class="row">
-                <li>003</li>
                 <li>AA0013</li>
                 <li>여성</li>
                 <li>20</li>
@@ -215,6 +222,7 @@
                 <li>1</li>
                 <li>2020-11-05</li>
                 <li>MF0216</li>
+                <li>2020-11-05</li>
                 <li class="col-buttons">
                     <button class="btn-edit" onclick="location.href='clinicalTrialPatient_edit.html'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -224,7 +232,6 @@
                 </li>
             </ul>
             <ul class="row">
-                <li>002</li>
                 <li>AA0012</li>
                 <li>여성</li>
                 <li>20</li>
@@ -233,6 +240,7 @@
                 <li>1</li>
                 <li>2020-11-05</li>
                 <li>MF0216</li>
+                <li>2020-11-05</li>
                 <li class="col-buttons">
                     <button class="btn-edit" onclick="location.href='clinicalTrialPatient_edit.html'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -242,7 +250,6 @@
                 </li>
             </ul>
             <ul class="row">
-                <li>001</li>
                 <li>AA0011</li>
                 <li>여성</li>
                 <li>20</li>
@@ -251,6 +258,7 @@
                 <li>1</li>
                 <li>2020-11-05</li>
                 <li>MF0216</li>
+                <li>2020-11-05</li>
                 <li class="col-buttons">
                     <button class="btn-plus" onclick="location.href='clinicalTrialPatient_add.html'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
@@ -276,7 +284,7 @@
 </main>
 <script>
     $(function () {
-        $("#confirmedStartDate, #confirmedEndDate, #severityStartDate, #severityEndDate").datepicker({
+        $("#confirmedStartDate, #confirmedEndDate, #severityStartDate, #severityEndDate, #updatedStartDate, #updatedEndDate").datepicker({
             changeMonth: true,
             changeYear: true,
             dateFormat: 'yy-mm-dd'

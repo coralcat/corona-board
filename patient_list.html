@@ -6,6 +6,8 @@
     <title>확진환자 현황</title>
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <script src="assets/lib/jquery-3.5.1.min.js"></script>
+    <script src="assets/lib/jquery-ui.min.js"></script>
     <script src="assets/js/script.js"></script>
 </head>
 <body>
@@ -81,14 +83,19 @@
 <main class="patient_list">
     <header>
         <h3>확진환자 조회</h3>
-        <button onclick="location.href='patient_add.html'">
-            <span>확진환자 생성</span>
-        </button>
+        <div class="buttons">
+            <button class="csv-upload">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                </svg>
+                <span>확진환자 CSV 데이터 업로드</span>
+            </button>
+        </div>
     </header>
     <div class="filters">
         <ul>
             <li>
-                <label for="select-patient-id">확진번호</label>
+                <label for="select-patient-id">환자ID</label>
                 <div class="selectbox">
                     <select name="" id="select-patient-id">
                         <option value="">001</option>
@@ -177,6 +184,14 @@
                     <input class="datepicker" type="text" id="severityEndDate">
                 </div>
             </li>
+            <li>
+                <label>업데이트 날짜</label>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="updatedStartDate">
+                    <span class="tilde">~</span>
+                    <input class="datepicker" type="text" id="updatedEndDate">
+                </div>
+            </li>
         </ul>
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -185,14 +200,14 @@
         </button>
     </div>
     <section>
-        <div class="buttons">
+        <!--<div class="buttons">
             <button class="btn-download">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                 </svg>
                 <span>CSV 다운로드</span>
             </button>
-        </div>
+        </div>-->
         <div class="table">
             <ul class="row th">
                 <li>
@@ -201,7 +216,7 @@
                         <label for="check-all"></label>
                     </div>
                 </li>
-                <li>확진번호</li>
+                <li>환자ID</li>
                 <li>성별</li>
                 <li>나이</li>
                 <li>확진일자</li>
@@ -212,7 +227,7 @@
                 <li>기저질환</li>
                 <li>상태</li>
                 <li>퇴원(사망)일자</li>
-                <li>버튼</li>
+                <li>업데이트 날짜</li>
             </ul>
             <div class="rows">
                 <ul class="row">
@@ -233,89 +248,8 @@
                     <li>고혈압, 당뇨</li>
                     <li>입원</li>
                     <li>20201120</li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-plus">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-more">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                <path d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-                            </svg>
-                        </button>
-                    </li>
+                    <li>20201120</li>
                 </ul>
-                <div class="sub-div">
-                    <ul class="row sub-row">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li>5</li>
-                        <li>20201201</li>
-                        <li>7</li>
-                        <li></li>
-                        <li>입원</li>
-                        <li></li>
-                        <li>
-                            <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                                </svg>
-                            </button>
-                        </li>
-                    </ul>
-                    <ul class="row sub-row">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li>5</li>
-                        <li>20201201</li>
-                        <li>7</li>
-                        <li></li>
-                        <li>입원</li>
-                        <li></li>
-                        <li>
-                            <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                                </svg>
-                            </button>
-                        </li>
-                    </ul>
-                    <ul class="row sub-row">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li>5</li>
-                        <li>20201201</li>
-                        <li>7</li>
-                        <li></li>
-                        <li>입원</li>
-                        <li></li>
-                        <li>
-                            <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                                </svg>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <div class="rows">
                 <ul class="row">
@@ -336,44 +270,7 @@
                     <li>만성 간질환</li>
                     <li>입원</li>
                     <li>20201120</li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-plus">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-more">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                <path d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-                <ul class="row sub-row">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li>5</li>
-                    <li>20201201</li>
-                    <li>7</li>
-                    <li></li>
-                    <li>입원</li>
-                    <li></li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                    </li>
+                    <li>20201120</li>
                 </ul>
             </div>
             <div class="rows">
@@ -395,44 +292,7 @@
                     <li>만성 간질환/흡연</li>
                     <li>입원</li>
                     <li>20201120</li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-plus">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-more">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                <path d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-                <ul class="row sub-row">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li>5</li>
-                    <li>20201201</li>
-                    <li>7</li>
-                    <li></li>
-                    <li>입원</li>
-                    <li></li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                    </li>
+                    <li>20201120</li>
                 </ul>
             </div>
             <div class="rows">
@@ -451,47 +311,17 @@
                     <li>1</li>
                     <li>20201115</li>
                     <li>3</li>
-                    <li></li>
-                    <li>입원</li>
-                    <li>20201120</li>
                     <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
+                        <button onclick="location.href='patient_edit.html'" class="btn-plus-text">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-plus">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
-                        </button>
-                        <button class="btn-more">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                <path d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-                            </svg>
+                            <small>입력</small>
                         </button>
                     </li>
-                </ul>
-                <ul class="row sub-row">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li>5</li>
-                    <li>20201201</li>
-                    <li>7</li>
-                    <li></li>
                     <li>입원</li>
-                    <li></li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                    </li>
+                    <li>20201120</li>
+                    <li>20201120</li>
                 </ul>
             </div>
             <div class="rows">
@@ -513,49 +343,33 @@
                     <li></li>
                     <li>입원</li>
                     <li>20201120</li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-plus">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-more">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                <path d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-                <ul class="row sub-row">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li>5</li>
-                    <li>20201201</li>
-                    <li>7</li>
-                    <li></li>
-                    <li>입원</li>
-                    <li></li>
-                    <li>
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                    </li>
+                    <li>20201120</li>
                 </ul>
             </div>
         </div>
     </section>
+    <div class="modal modal-csv-upload">
+        <h3>확진환자 데이터 업로드</h3>
+        <div class="row">
+            <button class="btn-file">
+                <span>파일 찾기</span>
+                <input type="file" accept=".csv" name="FileAttachment" id="FileAttachment" class="upload"/>
+            </button>
+            <span class="upload-file">Maximum file size is 100mb</span>
+        </div>
+        <button>등록</button>
+    </div>
+    <div class="overlay"></div>
 </main>
+<script>
+    $(function () {
+        $("#confirmedStartDate, #confirmedEndDate, #severityStartDate, #severityEndDate, #updatedStartDate, #updatedEndDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+</script>
 
 </div>
 </body>
