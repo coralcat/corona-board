@@ -72,17 +72,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (btnCheckAll) {
     btnCheckAll.onclick = checkAll;
-  } // 임상시험대상환자 상세정보 추가
+  } // 임상시험대상환자 상세정보 입력 - 팝업창
 
 
   var overlay = document.querySelector('.overlay');
-  var modal = document.querySelector('.modal');
-  var modalConfirmationNumber = document.querySelector('.modal-confirmation-number');
-  var confirmationNumber = document.querySelector('.col-confirmation-number input');
+  var modals = document.querySelectorAll('.modal');
+  var inputLocationID = document.querySelector('.input-locationID');
+  var modalLocationID = document.querySelector('.modal-locationID');
 
-  if (confirmationNumber) {
-    confirmationNumber.addEventListener('click', function () {
-      modalConfirmationNumber.classList.add('active');
+  if (inputLocationID) {
+    inputLocationID.addEventListener('click', function () {
+      modalLocationID.classList.add('active');
+      overlay.classList.add('active');
+    });
+  }
+
+  var inputResearchID = document.querySelector('.input-researchID');
+  var modalResearchID = document.querySelector('.modal-researchID');
+
+  if (inputResearchID) {
+    inputResearchID.addEventListener('click', function () {
+      modalResearchID.classList.add('active');
+      overlay.classList.add('active');
+    });
+  }
+
+  var inputBodyPosition = document.querySelector('.input-body-position');
+  var modalBodyPosition = document.querySelector('.modal-body-position');
+
+  if (inputBodyPosition) {
+    inputBodyPosition.addEventListener('click', function () {
+      modalBodyPosition.classList.add('active');
       overlay.classList.add('active');
     });
   }
@@ -90,7 +110,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (overlay) {
     overlay.addEventListener('click', function () {
       overlay.classList.remove('active');
-      modal.classList.remove('active');
+      modals.forEach(function (modal) {
+        modal.classList.remove('active');
+      });
     });
   } // 임상시험대상환자 CSV 파일 업로드
 
@@ -99,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (csvUpload) {
     csvUpload.addEventListener('click', function () {
-      modal.classList.add('active');
+      modals.classList.add('active');
       overlay.classList.add('active');
     });
   }
