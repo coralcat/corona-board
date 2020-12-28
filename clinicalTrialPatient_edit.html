@@ -90,31 +90,31 @@
             <div class="input-title required">병원</div>
             <div class="input-select">
                 <div>
-                    <input type="radio" name="select-hospital" id="suwon" checked>
+                    <input disabled type="radio" name="select-hospital" id="suwon">
                     <label for="suwon">수원병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="ansung">
+                    <input disabled type="radio" name="select-hospital" id="ansung">
                     <label for="ansung">안성병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="euijungbu">
+                    <input disabled type="radio" name="select-hospital" id="euijungbu">
                     <label for="euijungbu">의정부병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="pocheon">
+                    <input disabled type="radio" name="select-hospital" id="pocheon">
                     <label for="pocheon">포천병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="paju">
+                    <input disabled checked type="radio" name="select-hospital" id="paju">
                     <label for="paju">파주병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="icheon">
+                    <input disabled type="radio" name="select-hospital" id="icheon">
                     <label for="icheon">이천병원</label>
                 </div>
                 <div>
-                    <input type="radio" name="select-hospital" id="ajou">
+                    <input disabled type="radio" name="select-hospital" id="ajou">
                     <label for="ajou">아주대병원</label>
                 </div>
             </div>
@@ -129,12 +129,7 @@
                 <div class="input-title">감염추정지역</div>
                 <div class="selectbox">
                     <select>
-                        <option value="">경기도</option>
-                    </select>
-                </div>
-                <div class="selectbox">
-                    <select>
-                        <option value="">수원시</option>
+                        <option value="">지역ID</option>
                     </select>
                 </div>
             </div>
@@ -173,41 +168,15 @@
                     </div>
                 </div>
             </div>
-            <div class="column col-confirmation-number">
-                <div class="input-title required">확진번호</div>
-                <input type="text" value="123456">
-            </div>
             <div class="column">
-                <div class="input-title required">연구 ID</div>
+                <div class="input-title required">참여연구</div>
                 <div class="selectbox">
                     <select>
-                        <option value="1">1</option>
+                        <option value="1">참여연구 선택</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
                 </div>
-            </div>
-        </div>
-
-        <h3>부작용 정보</h3>
-        <div class="row">
-            <div class="input-title">부작용 발생일자</div>
-            <input class="datepicker" type="text" id="sideEffectDate" placeholder="YYYY-mm-dd">
-            <input type="time" value="00:00:00" step="1">
-        </div>
-        <div class="row">
-            <button class="btn-plus">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                </svg>
-            </button>
-            <div class="column">
-                <div class="input-title">부작용 테이블코드</div>
-                <input type="text">
-            </div>
-            <div class="column">
-                <div class="input-title">부작용 컬럼코드</div>
-                <input type="text">
             </div>
         </div>
 
@@ -220,77 +189,47 @@
             </div>
         </div>
         <div class="row">
+            <div class="column">
+                <div class="input-title">신체계측 종류코드</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title">(신체)위치코드</div>
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
             <button class="btn-plus">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                 </svg>
             </button>
             <div class="column">
-                <div class="input-title">신체계측 종류코드</div>
-                <input type="text">
-            </div>
-            <div class="column">
                 <div class="input-title">신체계측값</div>
                 <input type="text">
-                <div class="selectbox">
-                    <select>
-                        <option value="키">키</option>
-                        <option value="몸무게">몸무게</option>
-                        <option value="체온">체온</option>
-                    </select>
-                </div>
             </div>
         </div>
 
-        <h3>부작용 정보</h3>
-        <div class="row">
-            <div class="input-title">기저질환</div>
-            <div class="input-select select-checkbox">
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_01" checked>
-                    <label for="disease_01">당뇨</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_02">
-                    <label for="disease_02">고혈압</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_03" checked>
-                    <label for="disease_03">만성심장질환</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_04">
-                    <label for="disease_04">만성호흡기질환</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_05">
-                    <label for="disease_05">만성신장질환</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_06">
-                    <label for="disease_06">만성간질환</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_07">
-                    <label for="disease_07">암</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_08">
-                    <label for="disease_08">치매</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_09">
-                    <label for="disease_09">뇌혈관질환</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_10">
-                    <label for="disease_10">흡연</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="select-disease" id="disease_11">
-                    <label for="disease_11">기타</label>
-                </div>
-            </div>
+        <h3>검사결과 입력</h3>
+        <div class="table">
+            <ul class="row th">
+                <li>검사날짜</li>
+                <li>검사코드</li>
+                <li>검사결과(숫자)</li>
+                <li>검사결과(텍스트)</li>
+            </ul>
+            <ul class="row">
+                <li>2020-12-25</li>
+                <li>65465165</li>
+                <li><input type="number" placeholder="숫자입력"></li>
+                <li><input type="text" placeholder="내용입력"></li>
+            </ul>
+            <ul class="row">
+                <li>2020-12-25</li>
+                <li>4984165</li>
+                <li><input type="number" placeholder="숫자입력"></li>
+                <li><input type="text" placeholder="내용입력"></li>
+            </ul>
         </div>
     </section>
     <div class="modal modal-confirmation-number">
