@@ -76,17 +76,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var overlay = document.querySelector('.overlay');
+  var closes = document.querySelectorAll('.close');
   var modals = document.querySelectorAll('.modal');
-  var inputLocationID = document.querySelector('.input-locationID');
-  var modalLocationID = document.querySelector('.modal-locationID');
-
-  if (inputLocationID) {
-    inputLocationID.addEventListener('click', function () {
-      modalLocationID.classList.add('active');
-      overlay.classList.add('active');
-    });
-  }
-
   var inputResearchID = document.querySelector('.input-researchID');
   var modalResearchID = document.querySelector('.modal-researchID');
 
@@ -107,12 +98,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var closeModal = function closeModal() {
+    overlay.classList.remove('active');
+    modals.forEach(function (modal) {
+      modal.classList.remove('active');
+    });
+  };
+
   if (overlay) {
-    overlay.addEventListener('click', function () {
-      overlay.classList.remove('active');
-      modals.forEach(function (modal) {
-        modal.classList.remove('active');
-      });
+    overlay.addEventListener('click', closeModal);
+  }
+
+  if (closes) {
+    closes.forEach(function (close) {
+      close.addEventListener('click', closeModal);
     });
   } // 임상시험대상환자 CSV 파일 업로드
 

@@ -127,15 +127,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="column">
-                <div class="input-title">조사일</div>
-                <input class="datepicker" type="text" id="investigationDate" value="2020-12-01" placeholder="YYYY-mm-dd">
-                <input type="time" value="12:03:00" step="1">
-            </div>
-            <div class="column">
-                <div class="input-title">감염추정지역</div>
-                <input type="text" class="input-locationID" placeholder="지역ID">
-            </div>
+            <div class="input-title">조사일</div>
+            <input class="datepicker" type="text" id="investigationDate" value="2020-12-01"
+                   placeholder="YYYY-mm-dd">
+            <input type="time" value="12:03:00" step="1">
         </div>
         <div class="row">
             <div class="column">
@@ -148,26 +143,6 @@
                     <div>
                         <input type="radio" name="select-contactInfected" id="contactInfected-no">
                         <label for="contactInfected-no">no</label>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="input-title">감염자 접촉일시</div>
-                <input class="datepicker" type="text" id="contactInfectedDate" value="2020-11-27">
-                <input type="time" value="19:21:00" step="1">
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <div class="input-title">의료종사자 여부</div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-yes">
-                        <label for="healthcareWorkers-yes">yes</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-no" checked>
-                        <label for="healthcareWorkers-no">no</label>
                     </div>
                 </div>
             </div>
@@ -229,30 +204,12 @@
             </ul>
         </div>
     </section>
-    <div class="modal modal-locationID">
-        <header>
-            <h3>감염추정 지역ID</h3>
-            <div class="search">
-                <input type="text">
-                <button>검색</button>
-            </div>
-        </header>
-        <div class="table">
-            <ul class="row th">
-                <li>확진번호</li>
-                <li>나이</li>
-                <li>확진일자</li>
-                <li>병원</li>
-            </ul>
-            <ul class="row">
-                <li>5</li>
-                <li>20</li>
-                <li>2020-12-01</li>
-                <li>수원</li>
-            </ul>
-        </div>
-    </div>
     <div class="modal modal-researchID">
+        <div class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+            </svg>
+        </div>
         <header>
             <h3>참여연구 ID</h3>
             <div class="search">
@@ -276,6 +233,11 @@
         </div>
     </div>
     <div class="modal modal-body-position">
+        <div class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+            </svg>
+        </div>
         <header>
             <h3>신체 위치코드</h3>
             <div class="search">
@@ -305,13 +267,13 @@
     <div class="overlay"></div>
 </main>
 <script>
-  $(function () {
-    $("#investigationDate, #contactInfectedDate, #sideEffectDate, #bodyMeasurementDate").datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: 'yy-mm-dd'
+    $(function () {
+        $("#investigationDate, #contactInfectedDate, #sideEffectDate, #bodyMeasurementDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd'
+        });
     });
-  });
 </script>
 
 </div>
