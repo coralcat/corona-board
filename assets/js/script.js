@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (inputResearchID) {
     inputResearchID.addEventListener('click', function () {
       modalResearchID.classList.add('active');
-      overlay.classList.add('active');
+      overlay.classList.add('dimmed');
     });
   }
 
@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', function () {
   if (inputBodyPosition) {
     inputBodyPosition.addEventListener('click', function () {
       modalBodyPosition.classList.add('active');
-      overlay.classList.add('active');
+      overlay.classList.add('dimmed');
     });
   }
 
   var closeModal = function closeModal() {
-    overlay.classList.remove('active');
+    overlay.classList.remove('dimmed');
     modals.forEach(function (modal) {
       modal.classList.remove('active');
     });
