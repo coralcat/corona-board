@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (btnCheckAll) {
     btnCheckAll.onclick = checkAll;
-  } // 임상시험대상환자 상세정보 입력 - 팝업창
+  } // 임상시험대상환자 상세정보 - 팝업창
 
 
   var overlay = document.querySelector('.overlay');
@@ -113,6 +113,40 @@ document.addEventListener('DOMContentLoaded', function () {
     closes.forEach(function (close) {
       close.addEventListener('click', closeModal);
     });
+  } // 임상시험대상환자 상세정보 - 신체계측 정보 양식 추가 및 삭제
+
+
+  var addBodyMeasurement = document.querySelector('.add-body-measurement');
+
+  if (addBodyMeasurement) {
+    var removeBodyMeasurementForm = function removeBodyMeasurementForm(event) {
+      var rows = document.querySelectorAll('.form-body-measurement .rows');
+      var currentButton = event.target.parentNode;
+      var currentRow = currentButton.parentNode;
+
+      if (rows.length !== 1) {
+        form.removeChild(currentRow);
+      }
+    };
+
+    var addBodyMeasurementForm = function addBodyMeasurementForm(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      var clone = form.children[0].cloneNode(true);
+      form.insertBefore(clone, this);
+      var inputs = clone.querySelectorAll('input');
+      inputs.forEach(function (input) {
+        input.value = '';
+      });
+      var deleteButtons = document.querySelectorAll('.btn-minus');
+      deleteButtons.forEach(function (deleteButton) {
+        deleteButton.addEventListener('click', removeBodyMeasurementForm);
+      });
+      return false;
+    };
+
+    var form = document.querySelector('.form-body-measurement');
+    addBodyMeasurement.addEventListener('click', addBodyMeasurementForm);
   } // 임상시험대상환자 CSV 파일 업로드
 
 
