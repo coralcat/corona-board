@@ -105,10 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 
-  if (overlay) {
-    overlay.addEventListener('click', closeModal);
-  }
-
   if (closes) {
     closes.forEach(function (close) {
       close.addEventListener('click', closeModal);
