@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (csvUpload) {
     csvUpload.addEventListener('click', function () {
-      modals.classList.add('active');
+      var modal = document.querySelector('.modal');
+      modal.classList.add('active');
       overlay.classList.add('active');
     });
   }
