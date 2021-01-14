@@ -32,19 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
       init(index);
     });
     init(0);
-  }); // 환자조회: 내역조회
-
-  var moreButton = document.querySelectorAll('.btn-more');
-  var rows = document.querySelectorAll('.rows');
-
-  var initRow = function initRow(n) {
-    rows[n].classList.toggle('active');
-  };
-
-  moreButton.forEach(function (row, index) {
-    row.addEventListener('click', function () {
-      initRow(index);
-    });
   }); //환자조회: 체크박스
 
   function check() {
@@ -69,8 +56,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (btnCheckAll) {
     btnCheckAll.onclick = checkAll;
-  } // 임상시험대상환자 상세정보 - 팝업창
+  } // 임상시험참여자 조회: 내역조회
 
+
+  var moreButton = document.querySelectorAll('.btn-more');
+  var rows = document.querySelectorAll('.rows');
+
+  var initRow = function initRow(n) {
+    rows[n].classList.toggle('active');
+  };
+
+  moreButton.forEach(function (row, index) {
+    row.addEventListener('click', function () {
+      initRow(index);
+    });
+  });
+
+  var colButtonEvent = function colButtonEvent(e) {
+    e = e || window.event;
+
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    } else {
+      event.cancelBubble = true;
+    }
+  };
+
+  var colButtons = document.querySelectorAll('.col-buttons button');
+  colButtons.forEach(function (colButton) {
+    colButton.addEventListener('click', colButtonEvent);
+  }); // 임상시험참여자 상세정보 - 팝업창
 
   var overlay = document.querySelector('.overlay');
   var closes = document.querySelectorAll('.close');
@@ -106,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     closes.forEach(function (close) {
       close.addEventListener('click', closeModal);
     });
-  } // 임상시험대상환자 상세정보 - 신체계측 정보 양식 추가 및 삭제
+  } // 임상시험참여자 상세정보 - 신체계측 정보 양식 추가 및 삭제
 
 
   var addBodyMeasurement = document.querySelector('.add-body-measurement');
@@ -140,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var form = document.querySelector('.form-body-measurement');
     addBodyMeasurement.addEventListener('click', addBodyMeasurementForm);
-  } // 임상시험대상환자 CSV 파일 업로드
+  } // 임상시험참여자 CSV 파일 업로드
 
 
   var csvUpload = document.querySelector('.csv-upload');
