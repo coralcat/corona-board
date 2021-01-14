@@ -12,277 +12,256 @@
 </head>
 <body>
 <div class="container">
+    
+<aside>
+    <header>
+        <div class="logo" onclick="location.href='patient_list.html'"></div>
+        <button class="btn-login" onclick="location.href='login.html'">login</button>
+    </header>
+    
+    
+    <nav class="menu">
+        <small>확진환자 정보관리</small>
+        <ul>
+            <li>
+                <a class="" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <span>확진환자 현황</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="active" href="patient_list.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>확진환자 정보</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        <small>임상시험 참여자 정보관리</small>
+        <ul>
+            <li>
+                <a class="" href="clinicalTrialPatient_dashboard.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <span>임상시험 참여자 현황</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="" href="clinicalTrialPatient_list.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>임상시험 참여자 정보</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="buttons">
+        </button>
+        <button class="btn-admin " onclick="location.href='user_list.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+            </svg>
+            <span>admin</span>
+        </button>
+    </div>
 
-    <aside>
-        <header>
-            <div class="logo" onclick="location.href='patient_list.html'"></div>
-            <button class="btn-login" onclick="location.href='login.html'">login</button>
-        </header>
-
-
-        <nav class="menu">
-            <small>확진환자 정보관리</small>
-            <ul>
-                <li>
-                    <a class="" href="index.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                        </svg>
-                        <span>확진환자 현황</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a class="active" href="patient_list.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span>확진환자 정보</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-            <small>임상시험 참여자 정보관리</small>
-            <ul>
-                <li>
-                    <a class="" href="clinicalTrialPatient_dashboard.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                        </svg>
-                        <span>임상시험 참여자 현황</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="clinicalTrialPatient_list.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                        <span>임상시험 참여자 정보</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+</aside>
+<main class="patient_list">
+    <header>
+        <h3>확진환자 조회</h3>
         <div class="buttons">
-            </button>
-            <button class="btn-admin " onclick="location.href='user_list.html'">
+            <button class="csv-upload">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+                    <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
                 </svg>
-                <span>admin</span>
+                <span>확진환자 CSV 데이터 업로드</span>
             </button>
         </div>
-
-    </aside>
-    <main class="patient_list">
-        <header>
-            <h3>확진환자 조회</h3>
-            <div class="buttons">
-                <button class="csv-upload">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-                    </svg>
-                    <span>확진환자 CSV 데이터 업로드</span>
-                </button>
-            </div>
-        </header>
-        <div class="filters">
-            <ul>
-                <li>
-                    <label for="select-patient-id">환자ID</label>
-                    <div class="selectbox">
-                        <select name="" id="select-patient-id">
-                            <option value="">001</option>
-                            <option value="">002</option>
-                            <option value="">003</option>
-                        </select>
-                    </div>
-                </li>
-                <li class="filter-age">
-                    <label>나이</label>
-                    <div>
-                        <input type="text">
-                        <span class="tilde">~</span>
-                        <input type="text">
-                    </div>
-                </li>
-                <li>
-                    <label for="select-gender">성별</label>
-                    <div class="selectbox">
-                        <select name="" id="select-gender">
-                            <option value="male">남성</option>
-                            <option value="female">여성</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <label for="select-hospital">병원</label>
-                    <div class="selectbox">
-                        <select name="" id="select-hospital">
-                            <option value="suwon">수원</option>
-                            <option value="ansung">안성</option>
-                            <option value="euijungbu">의정부</option>
-                            <option value="pocheon">포천</option>
-                            <option value="paju">파주</option>
-                            <option value="icheon">이천</option>
-                            <option value="ajou">아주대</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <label for="select-severity">중증도</label>
-                    <div class="selectbox">
-                        <select name="" id="select-severity">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <label for="select-detail">상세정보상태</label>
-                    <div class="selectbox">
-                        <select name="" id="select-detail">
-                            <option value="yes">예</option>
-                            <option value="no">아니오</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <label for="select-research">참여연구</label>
-                    <div class="selectbox">
-                        <select name="" id="select-research">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <label>확진일자</label>
-                    <div class="input-select">
-                        <input class="datepicker" type="text" id="confirmedStartDate">
-                        <span class="tilde">~</span>
-                        <input class="datepicker" type="text" id="confirmedEndDate">
-                    </div>
-                </li>
-                <li>
-                    <label for="select-severity">중증도 측정일자</label>
-                    <div class="input-select">
-                        <input class="datepicker" type="text" id="severityStartDate">
-                        <span class="tilde">~</span>
-                        <input class="datepicker" type="text" id="severityEndDate">
-                    </div>
-                </li>
-                <li>
-                    <label>업데이트날짜</label>
-                    <div class="input-select">
-                        <input class="datepicker" type="text" id="updatedStartDate">
-                        <span class="tilde">~</span>
-                        <input class="datepicker" type="text" id="updatedEndDate">
-                    </div>
-                </li>
+    </header>
+    <div class="filters">
+        <ul>
+            <li>
+                <label for="select-patient-id">환자ID</label>
+                <div class="selectbox">
+                    <select name="" id="select-patient-id">
+                        <option value="">001</option>
+                        <option value="">002</option>
+                        <option value="">003</option>
+                    </select>
+                </div>
+            </li>
+            <li class="filter-age">
+                <label>나이</label>
+                <div>
+                    <input type="text">
+                    <span class="tilde">~</span>
+                    <input type="text">
+                </div>
+            </li>
+            <li>
+                <label for="select-gender">성별</label>
+                <div class="selectbox">
+                    <select name="" id="select-gender">
+                        <option value="male">남성</option>
+                        <option value="female">여성</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label for="select-hospital">병원</label>
+                <div class="selectbox">
+                    <select name="" id="select-hospital">
+                        <option value="suwon">수원</option>
+                        <option value="ansung">안성</option>
+                        <option value="euijungbu">의정부</option>
+                        <option value="pocheon">포천</option>
+                        <option value="paju">파주</option>
+                        <option value="icheon">이천</option>
+                        <option value="ajou">아주대</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label for="select-severity">중증도</label>
+                <div class="selectbox">
+                    <select name="" id="select-severity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label>최초내원일</label>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="confirmedStartDate">
+                    <span class="tilde">~</span>
+                    <input class="datepicker" type="text" id="confirmedEndDate">
+                </div>
+            </li>
+            <li>
+                <label for="select-severity">중증도 측정일자</label>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="severityStartDate">
+                    <span class="tilde">~</span>
+                    <input class="datepicker" type="text" id="severityEndDate">
+                </div>
+            </li>
+            <li>
+                <label>업데이트날짜</label>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="updatedStartDate">
+                    <span class="tilde">~</span>
+                    <input class="datepicker" type="text" id="updatedEndDate">
+                </div>
+            </li>
+        </ul>
+        <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+        </button>
+    </div>
+    <section>
+        <!--<div class="buttons">
+            <button class="btn-download">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                <span>CSV 다운로드</span>
+            </button>
+        </div>-->
+        <div class="table">
+            <ul class="row th">
+                <li>환자ID</li>
+                <li>성별</li>
+                <li>나이</li>
+                <li>확진일자</li>
+                <li>병원</li>
+                <li>중증도</li>
+                <li>중증도 측정일</li>
+                <li>입원일수</li>
+                <li>기저질환</li>
+                <li>상태</li>
+                <li>퇴원(사망)일자</li>
+                <li>업데이트 날짜</li>
+                <li>버튼</li>
             </ul>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                </svg>
-            </button>
-        </div>
-        <section>
-            <!--<div class="buttons">
-                <button class="btn-download">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                    </svg>
-                    <span>CSV 다운로드</span>
-                </button>
-            </div>-->
-            <div class="table">
-                <ul class="row th">
-                    <li>환자ID</li>
-                    <li>성별</li>
-                    <li>나이</li>
-                    <li>확진일자</li>
-                    <li>병원</li>
-                    <li>중증도</li>
-                    <li>중증도 측정일</li>
-                    <li>입원일수</li>
-                    <li>기저질환</li>
-                    <li>상태</li>
-                    <li>퇴원(사망)일자</li>
-                    <li>업데이트 날짜</li>
-                    <li>버튼</li>
+            <div class="rows">
+                <ul class="row">
+                    <li>6</li>
+                    <li>여성</li>
+                    <li>20</li>
+                    <li>20201109</li>
+                    <li>용인</li>
+                    <li>1</li>
+                    <li>20201115</li>
+                    <li>3</li>
+                    <li>고혈압, 당뇨</li>
+                    <li>입원</li>
+                    <li>20201120</li>
+                    <li>20201120</li>
+                    <li class="col-buttons">
+                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                            </svg>
+                        </button>
+                    </li>
                 </ul>
-                <div class="rows">
-                    <ul class="row">
-                        <li>6</li>
-                        <li>여성</li>
-                        <li>20</li>
-                        <li>20201109</li>
-                        <li>용인</li>
-                        <li>1</li>
-                        <li>20201115</li>
-                        <li>3</li>
-                        <li>고혈압, 당뇨</li>
-                        <li>입원</li>
-                        <li>20201120</li>
-                        <li>20201120</li>
-                        <li class="col-buttons">
-                            <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                                </svg>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </section>
-        <div class="modal modal-csv-upload">
-            <div class="close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
-                    <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
-                </svg>
-            </div>
-            <header>
-                <h3>확진환자 데이터 업로드</h3>
-            </header>
-            <div class="modal-content">
-                <div class="row">
-                    <button class="btn-file">
-                        <span>파일 찾기</span>
-                        <input type="file" accept=".csv" name="FileAttachment" id="FileAttachment" class="upload"/>
-                    </button>
-                    <span class="upload-file">Maximum file size is 100mb</span>
-                </div>
-            </div>
-            <button>등록</button>
         </div>
-        <div class="overlay"></div>
-    </main>
-    <script>
-        $(function () {
-            $("#confirmedStartDate, #confirmedEndDate, #severityStartDate, #severityEndDate, #updatedStartDate, #updatedEndDate").datepicker({
-                changeMonth: true,
-                changeYear: true,
-                dateFormat: 'yy-mm-dd'
-            });
+    </section>
+    <div class="modal modal-csv-upload">
+        <div class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+            </svg>
+        </div>
+        <header>
+            <h3>확진환자 데이터 업로드</h3>
+        </header>
+        <div class="modal-content">
+            <div class="row">
+                <button class="btn-file">
+                    <span>파일 찾기</span>
+                    <input type="file" accept=".csv" name="FileAttachment" id="FileAttachment" class="upload"/>
+                </button>
+                <span class="upload-file">Maximum file size is 100mb</span>
+            </div>
+        </div>
+        <button>등록</button>
+    </div>
+    <div class="overlay"></div>
+</main>
+<script>
+    $(function () {
+        $("#confirmedStartDate, #confirmedEndDate, #severityStartDate, #severityEndDate, #updatedStartDate, #updatedEndDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd'
         });
-    </script>
+    });
+</script>
 
 </div>
 </body>
