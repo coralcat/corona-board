@@ -12,14 +12,14 @@
 </head>
 <body>
 <div class="container">
-
+    
 <aside>
     <header>
         <div class="logo" onclick="location.href='patient_list.html'"></div>
         <button class="btn-login" onclick="location.href='login.html'">login</button>
     </header>
-
-
+    
+    
     <nav class="menu">
         <small>확진환자 정보관리</small>
         <ul>
@@ -151,28 +151,11 @@
                 </div>
             </li>
             <li>
-                <label for="select-detail">상세정보상태</label>
-                <div class="selectbox">
-                    <select name="" id="select-detail">
-                        <option value="yes">예</option>
-                        <option value="no">아니오</option>
-                    </select>
-                </div>
-            </li>
-            <li>
                 <label for="select-research">참여연구</label>
-                <div class="selectbox">
-                    <select name="" id="select-research">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
+                <input id="select-research" type="text" class="input-researchID">
             </li>
             <li>
-                <label>확진일자</label>
+                <label>최초내원일</label>
                 <div class="input-select">
                     <input class="datepicker" type="text" id="confirmedStartDate">
                     <span class="tilde">~</span>
@@ -202,6 +185,7 @@
             </svg>
         </button>
     </div>
+    <small>※ 나이는 최초내원일 기준 나이입니다.</small>
     <section>
         <!--<div class="buttons">
             <button class="btn-download">
@@ -230,33 +214,28 @@
             </ul>
             <div class="rows">
                 <ul class="row">
-                    <li>6</li>
-                    <li>여성</li>
-                    <li>20</li>
-                    <li>20201109</li>
-                    <li>용인</li>
-                    <li>1</li>
-                    <li>20201115</li>
-                    <li>3</li>
-                    <li>고혈압, 당뇨</li>
-                    <li>참여연구</li>
-                    <li>입원</li>
-                    <li>20201120</li>
-                    <li>20201120</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">6</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">여성</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">20</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">20201109</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">용인</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">1</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">20201115</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">3</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">고혈압, 당뇨</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">참여연구</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">입원</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">20201120</li>
+                    <li onclick="location.href='clinicalTrialPatient_sub.html'">20201120</li>
                     <li class="col-buttons">
                         <button class="btn-edit" onclick="location.href='clinicalTrialPatient_add.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
                         </button>
-                        <button class="btn-edit" onclick="location.href='clinicalTrialPatient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
                         <button class="btn-more">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                <path d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
                             </svg>
                         </button>
                     </li>
@@ -278,10 +257,7 @@
                         <li></li>
                         <li>
                             <button onclick="location.href='clinicalTrialPatient_add.html'" class="btn-plus-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                                <small>입력</small>
+                                <small>수정</small>
                             </button>
                         </li>
                     </ul>
@@ -301,10 +277,7 @@
                         <li></li>
                         <li>
                             <button onclick="location.href='clinicalTrialPatient_add.html'" class="btn-plus-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                                <small>입력</small>
+                                <small>수정</small>
                             </button>
                         </li>
                     </ul>
@@ -324,10 +297,7 @@
                         <li></li>
                         <li>
                             <button onclick="location.href='clinicalTrialPatient_add.html'" class="btn-plus-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                                <small>입력</small>
+                                <small>수정</small>
                             </button>
                         </li>
                     </ul>
@@ -354,6 +324,34 @@
             </div>
         </div>
         <button>등록</button>
+    </div>
+    <div class="modal modal-researchID">
+        <div class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+            </svg>
+        </div>
+        <header>
+            <h3>참여연구 ID</h3>
+            <div class="search">
+                <input type="text">
+                <button>검색</button>
+            </div>
+        </header>
+        <div class="table">
+            <ul class="row th">
+                <li>참여연구ID</li>
+                <li>참여연구명</li>
+            </ul>
+            <ul class="row">
+                <li>A29384</li>
+                <li>감염병 연구</li>
+            </ul>
+            <ul class="row">
+                <li>EA9293</li>
+                <li>코로나 연구</li>
+            </ul>
+        </div>
     </div>
     <div class="overlay"></div>
 </main>

@@ -38,10 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var rows = document.querySelectorAll('.rows');
 
   var initRow = function initRow(n) {
-    rows.forEach(function (row) {
-      row.classList.remove('active');
-    });
-    rows[n].classList.add('active');
+    rows[n].classList.toggle('active');
   };
 
   moreButton.forEach(function (row, index) {
