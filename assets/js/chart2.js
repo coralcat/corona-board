@@ -137,7 +137,7 @@ function drawDaysChart() {
   var data = google.visualization.arrayToDataTable([['Days', 'Confirmation', 'Discharge'], [new Date(2020, 11, 1), 20, 1], [new Date(2020, 11, 2), 30, 3], [new Date(2020, 11, 3), 24, 4], [new Date(2020, 11, 4), 45, 8], [new Date(2020, 11, 5), 81, 12], [new Date(2020, 11, 6), 52, 15], [new Date(2020, 11, 7), 64, 22], [new Date(2020, 11, 8), 42, 18], [new Date(2020, 11, 9), 15, 25], [new Date(2020, 11, 10), 8, 30]]);
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
-    title: '일별 확진/퇴원 환자 통계',
+    title: '일별 등록/종료 환자 통계',
     titleTextStyle: {
       fontSize: 14,
       fontName: 'Nanumsquare',
