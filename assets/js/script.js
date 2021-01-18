@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   var colButtonEvent = function colButtonEvent(e) {
+    e.preventDefault();
     e = e || window.event;
 
     if (e.stopPropagation) {
