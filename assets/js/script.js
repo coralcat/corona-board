@@ -13,27 +13,28 @@ document.documentElement.addEventListener('touchstart', function (event) {
 }, false);
 document.addEventListener('DOMContentLoaded', function () {
   // 환자현황: 선택한 병원 대시보드 화면 띄우기
-  var subMenus = document.querySelectorAll('.sub-menu li');
-  var sections = document.querySelectorAll('.dashboard section');
 
-  var init = function init(n) {
-    sections.forEach(function (section) {
-      section.style.display = "none";
-      subMenus.forEach(function (subMenu) {
-        subMenu.classList.remove("active");
-      });
-    });
-    sections[n].style.display = "flex";
-    subMenus[n].classList.add("active");
-  };
-
-  subMenus.forEach(function (subMenu, index) {
-    subMenu.addEventListener("click", function () {
-      init(index);
-    });
-    init(0);
-  }); //환자조회: 체크박스
-
+  /*    const subMenus = document.querySelectorAll('.sub-menu li')
+      const sections = document.querySelectorAll('.dashboard section')
+  
+      const init = (n) => {
+          sections.forEach((section) => {
+              section.style.display = "none"
+              subMenus.forEach((subMenu) => {
+                  subMenu.classList.remove("active")
+              })
+          })
+          sections[n].style.display = "flex"
+          subMenus[n].classList.add("active")
+      }
+  
+      subMenus.forEach((subMenu, index) => {
+          subMenu.addEventListener("click", () => {
+              init(index)
+          })
+          init(0)
+      })*/
+  //환자조회: 체크박스
   function check() {
     var checked = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     var cbs = document.querySelectorAll('input[name="check-patient"]');
